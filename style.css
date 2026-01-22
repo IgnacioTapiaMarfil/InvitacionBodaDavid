@@ -436,3 +436,56 @@ body {
     filter: brightness(0.95);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
+
+/* ========================================
+   RESPONSIVE - MÓVIL
+   ======================================== */
+
+@media screen and (max-width: 768px) {
+    /* Carrusel móvil */
+    .carrusel-container {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .carrusel {
+        height: 450px;
+    }
+
+    .polaroid {
+        max-width: 90%;
+        padding: 10px 10px 60px;
+    }
+
+    .carrusel-btn {
+        padding: 10px 15px;
+        font-size: 1.5rem;
+    }
+
+    .carrusel-btn.prev {
+        left: 5px;
+    }
+
+    .carrusel-btn.next {
+        right: 5px;
+    }
+
+    /* Recuadros móvil */
+    .recuadros-container {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    .recuadro {
+        padding: 25px 30px;
+    }
+
+    .recuadro h3 {
+        font-size: 1.3rem;
+    }
+
+    .btn-recuadro {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+}
