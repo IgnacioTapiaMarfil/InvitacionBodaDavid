@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitación David y Esther</title>
+    
+    <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap" rel="stylesheet">
+    
+    <!-- Estilos -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- SECCIÓN PORTADA -->
     <section id="portada" class="pantalla-completa">
         <div class="overlay">
             <div class="fecha-boda">11 de Octubre de 2026</div>
@@ -26,6 +31,7 @@
         </div>
     </section>
 
+    <!-- ONDAS DIVISORAS -->
     <svg class="wave-divider" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M0,50 Q300,0 600,50 T1200,50 L1200,120 L0,120 Z"></path>
     </svg>
@@ -34,27 +40,91 @@
         <path d="M0,50 Q300,120 600,50 T1200,50 L1200,120 L0,120 Z"></path>
     </svg>
 
+    <!-- SECCIÓN CUENTA REGRESIVA -->
     <section id="cuenta-regresiva">
         <h2>Faltan:</h2>
-        <div id="reloj">
-            </div>
+        <div id="reloj"></div>
     </section>
 
-    <section id="anillos">
-        
-    </section>
+    <!-- SEPARADOR -->
+    <section id="anillos"></section>
 
+    <!-- SECCIÓN CEREMONIA -->
     <section id="itinerario">
-        <h1 id = "ceremonia">Ceremonia</h1>
+        <h1 id="ceremonia">Ceremonia</h1>
         <h2>Día</h2>
         <p>11 de Octubre de 2026</p>
-        <div class="evento">
-            <span>5:00 PM</span>
-        </div>
-        <button class="btn-calendar" onclick="addToCalendar()">📅 Añadir al Calendario</button>
-        <a class="btn-maps" href="https://www.google.com/maps/search/?api=1&query=LAT,LNG" target="_blank" rel="noopener">Ver ubicación en Google Maps</a>
+        <h2>Lugar</h2>
+        <p>Ibiza ---- ---- ---</p>
+        <a class="btn-maps" href="https://www.google.com/maps/search/?api=1&query=LAT,LNG" target="_blank" rel="noopener">Ver ubicación</a>
     </section>
 
+    <!-- SEPARADOR -->
+    <section id="anillos"></section>
+
+    <!-- SECCIÓN CELEBRACIÓN -->
+    <section id="itinerario">
+        <h1 id="ceremonia">Celebración</h1>
+        <h2>Día</h2>
+        <p>11 de Octubre de 2026</p>
+        <h2>Lugar</h2>
+        <p>Ibiza ---- ---- ---</p>
+        <a class="btn-maps" href="https://www.google.com/maps/search/?api=1&query=LAT,LNG" target="_blank" rel="noopener">Ver ubicación</a>
+    </section>
+
+    <!-- ONDAS DIVISORAS 2 -->
+    <svg class="wave-divider wave-divider-2" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,50 Q300,0 600,50 T1200,50 L1200,90 Q900,110 600,90 T0,90 Z"></path>
+    </svg>
+
+    <svg class="wave-divider wave-divider-inverted wave-divider-inverted-2" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,50 Q300,120 600,50 T1200,50 L1200,90 Q900,70 600,90 T0,90 Z"></path>
+    </svg>
+
+    <!-- SECCIÓN GALERÍA -->
+    <section id="galeria">
+        <h2>Retratos de Nuestro Amor</h2>
+        <div class="carrusel-container">
+            <div class="carrusel">
+                <div class="polaroid active">
+                    <img src="resources/foto-boda.jpg" alt="Foto 1">
+                </div>
+                <div class="polaroid">
+                    <img src="resources/foto-boda.jpg" alt="Foto 2">
+                </div>
+                <div class="polaroid">
+                    <img src="resources/foto-boda.jpg" alt="Foto 3">
+                </div>
+            </div>
+            <button class="carrusel-btn prev" onclick="cambiarFoto(-1)">❮</button>
+            <button class="carrusel-btn next" onclick="cambiarFoto(1)">❯</button>
+        </div>
+    </section>
+
+    <!-- SECCIÓN FIESTA -->
+    <section id="fiesta">
+        <h2>Fiesta</h2>
+        <p class="subtitulo">Detalles importantes para disfrutar juntos</p>
+        
+        <div class="recuadros-container">
+            <div class="recuadro">
+                <h3>Música</h3>
+                <button class="btn-recuadro">Ver detalles</button>
+            </div>
+            
+            <div class="recuadro">
+                <h3>Vestimenta</h3>
+                <button class="btn-recuadro">Ver detalles</button>
+            </div>
+            
+            <div class="recuadro">
+                <h3>Notas</h3>
+                <button class="btn-recuadro">Ver detalles</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN CONFIRMACIÓN -->
     <section id="confirmacion">
         <h2>¿Nos acompañas?</h2>
         <form id="rsvp-form">
@@ -67,6 +137,7 @@
         </form>
     </section>
 
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>

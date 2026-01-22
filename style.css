@@ -1,104 +1,149 @@
-/* Estilos generales */
+/* ========================================
+   ESTILOS GENERALES
+   ======================================== */
+
 body {
-    font-family: 'Playfair Display', serif; /* Una fuente elegante */
+    font-family: 'Playfair Display', serif;
     margin: 0;
     text-align: center;
-    color: #4a5d4e; /* Verde oscuro tipo "sage" como el video */
+    color: #4a5d4e;
     background-color: #fdfaf6;
 }
+
+/* ========================================
+   SECCIÓN PORTADA
+   ======================================== */
 
 .pantalla-completa {
     height: 100vh;
     display: flex;
     align-items: top;
-    text-align: center;
     justify-content: center;
     background-image: url('resources/foto-boda.jpg');
     background-size: cover;
     background-position: top;
 }
 
+/* Fecha de la boda */
 .fecha-boda {
     font-size: 1.2rem;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin: 20px 0;
     color: #ffffff;
     display: inline-block;
     position: relative;
-    padding: 0 40px; /* Espacio para que quepan las barritas */
+    padding: 0 40px;
     letter-spacing: 2px;
 }
 
-/* La barrita de la izquierda */
-.fecha-boda::before {
-    content: "";
-    position: absolute;
-    left: -35px;
-    bottom: 5px; /* Ajusta este valor para subir o bajar la barrita */
-    width: 20%; /* Largo de la barrita */
-    height: 2px; /* Grosor de la barrita */
-    background-color: #ffffff; /* El mismo color que el texto */
-}
-
-/* La barrita de la derecha */
+.fecha-boda::before,
 .fecha-boda::after {
     content: "";
     position: absolute;
-    right: -35px;
-    bottom: 5px; /* Debe ser igual al valor de ::before */
+    bottom: 5px;
     width: 20%;
     height: 2px;
     background-color: #ffffff;
 }
 
+.fecha-boda::before {
+    left: -35px;
+}
+
+.fecha-boda::after {
+    right: -35px;
+}
+
+/* Nombres de los novios */
+.nombre-david,
+.nombre-nicole {
+    font-size: 4rem;
+    font-family: "Fleur De Leah";
+    color: #ffffff;
+}
+
+.nombre-david {
+    align-self: flex-start;
+    margin: 0 30% 1% 0;
+}
+
+.nombre-nicole {
+    align-self: flex-end;
+    margin: 3% 0 0 30%;
+}
+
+/* Círculo con ampersand */
 .circulo-ampersand {
-    width: 30px;           /* Ajusta el tamaño del círculo */
+    width: 30px;
     height: 30px;
-    background-color: #87c061ad; /* Color blanco con transparencia */
-    border-radius: 50%;    /* Esto lo hace un círculo perfecto */
-    
-    display: flex;         /* Usamos flex para centrar el "&" */
+    background-color: #87c061ad;
+    border-radius: 50%;
+    display: flex;
     align-items: center;
     justify-content: center;
-    
-    margin: -10px auto;    /* Margen negativo para que los nombres se acerquen */
-    z-index: 2;            /* Para que esté por encima de otros elementos si es necesario */
+    margin: -10px auto;
+    z-index: 2;
 }
 
 .circulo-ampersand span {
     font-size: 1.8rem;
     font-style: italic;
-    color: #4a5d4e;        /* Color del texto del ampersand */
+    color: #4a5d4e;
 }
 
-/* Ajuste de los nombres para que se encimen un poco al círculo */
-.nombre-nicole {
-    font-size: 4rem;
-    font-family: "Fleur De Leah";
-    color: #ffffff;
-    align-self: flex-end;
-    margin-left: 30%;
-    margin-top: 3%;
+/* ========================================
+   ONDAS DIVISORAS
+   ======================================== */
+
+.wave-divider,
+.wave-divider-2 {
+    display: block;
+    width: 100%;
+    height: clamp(60px, 10vh, 250px);
+    position: relative;
+    z-index: 10;
 }
 
-.nombre-david {
-    font-size: 4rem;
-    font-family: "Fleur De Leah";
-    color: #ffffff;
-    align-self: flex-start;
-    margin-right: 30%;
-    margin-bottom: 1%;
+.wave-divider {
+    fill: #fdfaf6;
+    margin: -30px 0 0 0;
 }
 
-/* Estilos de secciones */
+.wave-divider-2 {
+    fill: #97c479;
+    margin: 40px 0 0 0;
+}
+
+.wave-divider-inverted,
+.wave-divider-inverted-2 {
+    display: block;
+    width: 100%;
+    height: clamp(60px, 10vh, 250px);
+    position: relative;
+    z-index: 9;
+}
+
+.wave-divider-inverted {
+    fill: #87c061ad;
+    margin: -50px 0 0 0;
+    transform: translateY(clamp(-60px, -5vh, -20px));
+}
+
+.wave-divider-inverted-2 {
+    fill: #79acc4;
+    transform: translateY(clamp(-60px, -1vh, -20px));
+}
+
+/* ========================================
+   SECCIÓN CUENTA REGRESIVA
+   ======================================== */
+
 #cuenta-regresiva {
-    /* bajar el reloj reduciendo la negatividad (menos solapamiento) */
     padding: 60px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    margin-top: -180px; /* antes -200px -> menos negativo = baja hacia abajo */
+    margin-top: -180px;
     z-index: 11;
 }
 
@@ -108,24 +153,22 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
-    z-index: 11;
     font-size: clamp(1.5rem, 4vw, 3rem);
+    z-index: 11;
 }
 
-/* El reloj de cuenta regresiva */
 #reloj {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 30px;
-    font-size: clamp(1rem, 5vw, 2rem);
     padding: 60px;
-    background: #ffffff;
-    border-radius: 50%;
     width: clamp(150px, 25vw, 400px);
     height: clamp(150px, 25vw, 400px);
-    position: relative;
+    background: #ffffff;
+    border-radius: 50%;
     box-shadow: 0 10px 40px rgba(91, 95, 89, 0.3);
+    font-size: clamp(1rem, 5vw, 2rem);
 }
 
 #reloj div {
@@ -148,41 +191,23 @@ body {
 
 #reloj div span {
     display: block;
-    font-size: clamp(1rem, 2vw, 1.5rem);
-    color: #4a5d4e;
-    font-weight: bold;
     margin-top: 5px;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: bold;
+    color: #4a5d4e;
 }
 
-.wave-divider {
-    fill: #fdfaf6;
-    display: block;
-    width: 100%;
-    height: clamp(60px, 10vh, 250px);
-    margin: -30px 0 0 0; /* antes -60px -> menos negativo = baja hacia abajo */
-    position: relative;
-    z-index: 10;
-}
+/* ========================================
+   SECCIÓN ANILLOS
+   ======================================== */
 
-.wave-divider-inverted {
-    fill: #87c061ad;
-    display: block;
-    width: 100%;
-    height: clamp(60px, 10vh, 250px);
-    margin: -50px 0 0 0; /* igual que la primera para alinearlas */
-    position: relative;
-    z-index: 9;
-    transform: translateY(clamp(-60px, -5vh, -20px)); /* ajuste fino escalable */
-}
-
-/* Sección anillos */
 #anillos {
     padding: 80px 20px;
+    margin-top: -50px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #fdfaf6;
-    margin-top: -50px;
 }
 
 #anillos::before {
@@ -195,42 +220,9 @@ body {
     box-shadow: 0 10px 40px rgba(91, 95, 89, 0.3);
 }
 
-/* Estilo para botones */
-.btn-maps {
-    display: inline-block;
-    margin-top: 20px;
-    background-color: #87c061ad;
-    color: #fff;
-    padding: 12px 20px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-    box-shadow: 0 6px 18px rgba(135,192,97,0.18);
-}
-.btn-maps:hover {
-    filter: brightness(0.95);
-}
-
-.btn-calendar {
-    display: inline-block;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    background-color: #6fa84f;
-    color: #fff;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 25px;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    box-shadow: 0 6px 18px rgba(135,192,97,0.18);
-    transition: all 0.3s ease;
-}
-.btn-calendar:hover {
-    background-color: #5e9340;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(135,192,97,0.25);
-}
+/* ========================================
+   SECCIÓN ITINERARIO
+   ======================================== */
 
 #ceremonia {
     display: inline-flex;
@@ -242,10 +234,205 @@ body {
     margin: 0 0 16px 0;
     background: #ffffff;
     color: #4a5d4e;
-    box-shadow: 0 10px 40px rgba(91, 95, 89, 0.3);
     border-radius: 6px;
+    box-shadow: 0 10px 40px rgba(91, 95, 89, 0.3);
     font-size: clamp(2.5rem, 5vw, 15rem);
     font-weight: 600;
     line-height: 1;
+}
+
+.btn-maps {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #87c061ad;
+    color: #fff;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 6px 18px rgba(135, 192, 97, 0.18);
+}
+
+.btn-maps:hover {
+    filter: brightness(0.95);
+}
+
+/* ========================================
+   SECCIÓN GALERÍA
+   ======================================== */
+
+#galeria {
+    padding: 80px 20px;
+    background-color: #fdfaf6;
+}
+
+#galeria h2 {
+    margin-bottom: -30px;
+    font-family: "Fleur De Leah";
+    font-size: 2.5rem;
+    color: #4a5d4e;
+}
+
+.carrusel-container {
     position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.carrusel {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilo polaroid */
+.polaroid {
+    position: absolute;
+    max-width: 400px;
+    width: 100%;
+    padding: 15px 15px 100px;
+    background: #fff;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: scale(0.8) rotate(0deg);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.polaroid.active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 2;
+}
+
+.polaroid:nth-child(1).active {
+    transform: scale(1) rotate(0deg);
+}
+
+.polaroid:nth-child(2).active {
+    transform: scale(1) rotate(2deg);
+}
+
+.polaroid:nth-child(3).active {
+    transform: scale(1) rotate(-4deg);
+}
+
+.polaroid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 3/3;
+    object-fit: cover;
+}
+
+.polaroid p {
+    margin-top: 15px;
+    font-family: 'Caveat', cursive;
+    font-size: 1.5rem;
+    color: #4a5d4e;
+    text-align: center;
+}
+
+/* Botones del carrusel */
+.carrusel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 15px 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    color: #4a5d4e;
+    font-size: 2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    z-index: 3;
+}
+
+.carrusel-btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.carrusel-btn.prev {
+    left: -20px;
+}
+
+.carrusel-btn.next {
+    right: -20px;
+}
+
+/* ========================================
+   SECCIÓN FIESTA
+   ======================================== */
+
+#fiesta {
+    padding: 80px 20px;
+    background-color: #fdfaf6;
+}
+
+#fiesta h2 {
+    margin-bottom: 10px;
+    font-family: "Fleur De Leah";
+    font-size: 2.5rem;
+    color: #4a5d4e;
+}
+
+#fiesta .subtitulo {
+    margin-bottom: 40px;
+    font-size: 1rem;
+    color: #7a8a7d;
+}
+
+.recuadros-container {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.recuadro {
+    padding: 30px 40px;
+    background: #f5f0e8;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recuadro:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.recuadro h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #4a5d4e;
+    font-weight: 600;
+}
+
+.btn-recuadro {
+    padding: 10px 25px;
+    background-color: #ffffff;
+    color: #4a5d4e;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: filter 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-recuadro:hover {
+    filter: brightness(0.95);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
