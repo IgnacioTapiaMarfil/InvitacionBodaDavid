@@ -59,3 +59,21 @@ function cambiarFoto(direccion) {
 setInterval(() => {
     cambiarFoto(1);
 }, 5000);
+
+// ========================================
+// MODALES
+// ========================================
+
+function abrirModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.add('activo');
+    }
+}
+
+function cerrarModal(event, modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.remove('activo');
+    }
+}
