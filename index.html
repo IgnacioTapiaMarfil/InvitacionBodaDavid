@@ -87,14 +87,26 @@
         <div class="carrusel-container">
             <div class="carrusel">
                 <div class="polaroid active">
-                    <img src="resources/foto-boda.jpg" alt="Foto 1">
+                    <img src="resources/Foto2.jpeg" alt="Foto 1">
                 </div>
                 <div class="polaroid">
-                    <img src="resources/foto-boda.jpg" alt="Foto 2">
+                    <img src="resources/Foto3.jpeg" alt="Foto 2">
                 </div>
                 <div class="polaroid">
-                    <img src="resources/foto-boda.jpg" alt="Foto 3">
+                    <img src="resources/Foto4.jpeg" alt="Foto 3">
                 </div>
+                <div class="polaroid">
+                    <img src="resources/Foto5.jpeg" alt="Foto 4">
+                </div>
+                <div class="polaroid">
+                    <img src="resources/Foto6.jpeg" alt="Foto 5">
+                </div>
+                <div class="polaroid">
+                    <img src="resources/Foto7.jpeg" alt="Foto 6">
+                </div>   
+                <div class="polaroid">
+                    <img src="resources/Foto8.jpeg" alt="Foto 7">
+                </div>  
             </div>
             <button class="carrusel-btn prev" onclick="cambiarFoto(-1)">❮</button>
             <button class="carrusel-btn next" onclick="cambiarFoto(1)">❯</button>
@@ -146,6 +158,29 @@
             <span class="cerrar" onclick="cerrarModal(event, 'modal-notas')">&times;</span>
             <h3>Notas</h3>
             <p>Aquí puedes agregar notas importantes, recordatorios, información adicional sobre la celebración, etc.</p>
+        </div>
+    </div>
+
+    <div id="modal-regalos" class="modal" onclick="cerrarModal(event, 'modal-regalos')">
+        <div class="modal-contenido" onclick="event.stopPropagation()">
+            <span class="cerrar" onclick="cerrarModal(event, 'modal-regalos')">&times;</span>
+            <h3>Regalos</h3>
+            <p>Aquí puedes agregar información sobre lista de bodas, número de cuenta, o cualquier detalle sobre regalos.</p>
+        </div>
+    </div>
+
+    <div id="modal-confirmacion" class="modal" onclick="cerrarModal(event, 'modal-confirmacion')">
+        <div class="modal-contenido" onclick="event.stopPropagation()">
+            <span class="cerrar" onclick="cerrarModal(event, 'modal-confirmacion')">&times;</span>
+            <h3>Confirmar Asistencia</h3>
+            <form id="rsvp-form">
+                <input type="text" placeholder="Nombre completo" required>
+                <select>
+                    <option value="si">Sí, confirmo</option>
+                    <option value="no">No puedo ir</option>
+                </select>
+                <button type="submit">Enviar Asistencia</button>
+            </form>
         </div>
     </div>
 
@@ -204,18 +239,31 @@
             </div>
         </div>
     </section>
+
+    <!-- SECCIÓN REGALOS -->
+    <section id="regalos">
+        <h2>Regalos</h2>
+        <p class="subtitulo">Vuestra presencia es el mejor regalo, pero si deseáis tener un detalle con nosotros...</p>
+        <button class="btn-regalos" onclick="abrirModal('modal-regalos')">Ver más</button>
+    </section>
+
+    <!-- SECCIÓN FOTOS -->
+    <section id="fotos">
+        <h2>Comparte tus Fotos</h2>
+        <p class="subtitulo">Escanea el código QR y comparte tus mejores momentos de nuestra boda</p>
+        <div class="qr-container">
+            <!-- Aquí irá el código QR -->
+            <div class="qr-placeholder">
+                <p>Código QR</p>
+            </div>
+        </div>
+    </section>
     
     <!-- SECCIÓN CONFIRMACIÓN -->
     <section id="confirmacion">
         <h2>¿Nos acompañas?</h2>
-        <form id="rsvp-form">
-            <input type="text" placeholder="Nombre completo" required>
-            <select>
-                <option value="si">Sí, confirmo</option>
-                <option value="no">No puedo ir</option>
-            </select>
-            <button type="submit">Enviar Asistencia</button>
-        </form>
+        <p class="subtitulo">Por favor confirma tu asistencia para que podamos organizar todo perfectamente</p>
+        <button class="btn-confirmacion" onclick="abrirModal('modal-confirmacion')">Confirmar asistencia</button>
     </section>
 
     <!-- JavaScript -->

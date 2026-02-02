@@ -35,6 +35,7 @@ const countdown = setInterval(() => {
 
 let indiceActual = 0;
 const fotos = document.querySelectorAll('.polaroid');
+let intervaloCarrusel;
 
 function mostrarFoto(indice) {
     fotos.forEach((foto, i) => {
@@ -53,10 +54,16 @@ function cambiarFoto(direccion) {
     }
     
     mostrarFoto(indiceActual);
+    
+    // Reiniciar el temporizador automático
+    clearInterval(intervaloCarrusel);
+    intervaloCarrusel = setInterval(() => {
+        cambiarFoto(1);
+    }, 5000);
 }
 
 // Avance automático cada 5 segundos
-setInterval(() => {
+intervaloCarrusel = setInterval(() => {
     cambiarFoto(1);
 }, 5000);
 
@@ -77,3 +84,39 @@ function cerrarModal(event, modalId) {
         modal.classList.remove('activo');
     }
 }
+
+// ========================================
+// FORMULARIO DE CONFIRMACIÓN
+// ========================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('rsvp-form');
+    
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Obtener los valores del formulario
+            const nombre = form.querySelector('input[type="text"]').value;
+            const asistencia = form.querySelector('select').value;
+            const asistenciaTexto = asistencia === 'si' ? 'SÍ confirmo mi asistencia' : 'NO puedo asistir';
+            
+            // Configurar el correo
+            const emailDestino = 'nachotapia02@gmail.com'; // Cambia esto por tu correo
+            const asunto = 'Confirmación de asistencia - Boda David y Esther';
+            const cuerpo = `Nombre: ${nombre}\n\nAsistencia: ${asistenciaTexto}\n\n---\nEnviado desde la invitación de boda`;
+            
+            // Crear el enlace mailto
+            const mailtoLink = `mailto:${emailDestino}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+            
+            // Abrir el cliente de correo
+            window.location.href = mailtoLink;
+            
+            // Cerrar el modal después de un breve delay
+            setTimeout(() => {
+                cerrarModal(null, 'modal-confirmacion');
+                form.reset();
+            }, 500);
+        });
+    }
+});
