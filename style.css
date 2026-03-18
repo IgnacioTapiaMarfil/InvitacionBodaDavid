@@ -4,6 +4,8 @@
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html, body {
@@ -17,6 +19,7 @@ html {
     font-size: 16px;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -26,23 +29,48 @@ body {
     background-color: #fdfaf6;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* ========================================
-   SECCIÓN PORTADA
+   SECCION PORTADA
    ======================================== */
 
 .pantalla-completa {
     height: 100vh;
+    height: 100dvh;
     display: flex;
-    align-items: top;
+    align-items: flex-start;
     justify-content: center;
     background-image: url('resources/Foto1.jpeg');
     background-size: cover;
     background-position: top;
+    overflow: hidden;
+}
+
+.overlay {
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.overlay p {
+    color: #ffffff;
+    max-width: min(90%, 600px);
+    font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+    line-height: 1.6;
+    padding: 0 10px;
+    margin: 10px 0;
 }
 
 /* Fecha de la boda */
 .fecha-boda {
-    font-size: 1.2rem;
+    font-size: clamp(0.75rem, 2.8vw, 1.2rem);
     margin: 20px 0;
     color: #ffffff;
     display: inline-block;
@@ -62,32 +90,41 @@ body {
 }
 
 .fecha-boda::before {
-    left: -35px;
+    left: 0;
 }
 
 .fecha-boda::after {
-    right: -35px;
+    right: 0;
 }
 
 /* Nombres de los novios */
+.nombres-container {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .nombre-david,
 .nombre-esther {
-    font-size: 4rem;
+    font-size: clamp(2.8rem, 10vw, 4rem);
     font-family: "Fleur De Leah";
     color: #ffffff;
+    margin: 0;
 }
 
 .nombre-david {
     align-self: flex-start;
-    margin: 0 30% 1% 0;
+    margin: 0 20% 0 5%;
 }
 
 .nombre-esther {
     align-self: flex-end;
-    margin: 3% 0 0 30%;
+    margin: 0 5% 0 20%;
 }
 
-/* Círculo con ampersand */
+/* Circulo con ampersand */
 .circulo-ampersand {
     width: 30px;
     height: 30px;
@@ -96,7 +133,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: -10px auto;
+    margin: -5px auto;
     z-index: 2;
 }
 
@@ -104,6 +141,20 @@ body {
     font-size: 1.8rem;
     font-style: italic;
     color: #546a68;
+}
+
+/* Flecha abajo */
+.flecha-abajo {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: #ffffff;
+    margin-top: 10px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
 }
 
 /* ========================================
@@ -121,12 +172,12 @@ body {
 
 .wave-divider {
     fill: #fdfaf6;
-    margin: -30px 0 0 0;
+    margin-top: -30px;
 }
 
 .wave-divider-2 {
     fill: rgba(84, 106, 104, 0.9);
-    margin: 40px 0 0 0;
+    margin-top: 20px;
 }
 
 .wave-divider-inverted,
@@ -140,7 +191,7 @@ body {
 
 .wave-divider-inverted {
     fill: rgba(84, 106, 104, 0.9);
-    margin: -50px 0 0 0;
+    margin-top: -50px;
     transform: translateY(clamp(-60px, -5vh, -20px));
 }
 
@@ -150,41 +201,38 @@ body {
 }
 
 /* ========================================
-   SECCIÓN CUENTA REGRESIVA
+   SECCION CUENTA REGRESIVA
    ======================================== */
 
 #cuenta-regresiva {
-    padding: 40px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 20px 20px 40px;
+    display: grid;
+    place-items: center;
     position: relative;
-    margin-top: -180px;
     z-index: 11;
 }
 
 #cuenta-regresiva h2 {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    grid-area: 1 / 1;
     margin: 0;
+    transform: translateY(clamp(-95px, -13vw, -50px));
     font-size: clamp(1.5rem, 4vw, 3rem);
-    z-index: 11;
+    z-index: 12;
+    pointer-events: none;
 }
 
 #reloj {
+    grid-area: 1 / 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
-    padding: 80px;
-    width: clamp(300px, 45vw, 650px);
-    height: clamp(300px, 45vw, 650px);
+    gap: clamp(10px, 3vw, 30px);
+    padding: clamp(30px, 6vw, 80px);
+    width: clamp(260px, 70vw, 550px);
+    height: clamp(260px, 70vw, 550px);
     background: #ffffff;
     border-radius: 50%;
     box-shadow: 0 10px 40px rgba(91, 95, 89, 0.3);
-    font-size: clamp(1.2rem, 6vw, 2.5rem);
 }
 
 #reloj div {
@@ -193,60 +241,64 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    font-size: clamp(2rem, 8vw, 4rem);
+    font-size: clamp(1.8rem, 6vw, 3.5rem);
 }
 
 #reloj div:not(:last-child)::after {
     content: "";
     position: absolute;
-    right: -15px;
+    right: clamp(-10px, -2vw, -15px);
     width: 2px;
-    height: 80px;
+    height: clamp(40px, 8vw, 80px);
     background-color: rgba(84, 106, 104, 0.9);
 }
 
 #reloj div span {
     display: block;
     margin-top: 8px;
-    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-size: clamp(0.7rem, 2vw, 1.5rem);
     font-weight: bold;
     color: #546a68;
 }
 
 /* ========================================
-   SECCIÓN ANILLOS
+   SECCION ANILLOS (SEPARADOR)
    ======================================== */
 
-#anillos {
-    padding: 40px 20px;
-    margin-top: -50px;
+.separador-anillos {
+    padding: 30px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #fdfaf6;
 }
 
-#anillos::before {
+.separador-anillos::before {
     content: "";
     display: block;
-    width: clamp(150px, 25vw, 400px);
-    height: clamp(150px, 25vw, 400px);
+    width: clamp(100px, 20vw, 300px);
+    height: clamp(100px, 20vw, 300px);
     background: #ffffff;
     border-radius: 50%;
     box-shadow: 0 10px 40px rgba(91, 95, 89, 0.3);
 }
 
 /* ========================================
-   SECCIÓN ITINERARIO
+   SECCION ITINERARIO (Ceremonia/Celebracion)
    ======================================== */
 
-#ceremonia {
+.seccion-evento {
+    padding: 50px 20px;
+    background-color: #fdfaf6;
+}
+
+.titulo-cinta {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: clamp(260px, 40vw, 520px);
-    height: clamp(72px, 11vw, 110px);
-    padding: 0 26px;
+    width: clamp(240px, 55vw, 520px);
+    height: clamp(60px, 10vw, 110px);
+    padding: 0 20px;
     margin: 0 0 16px 0;
     background-image: url('resources/Cinta.png');
     background-size: 100% 100%;
@@ -256,21 +308,31 @@ body {
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     box-shadow: none;
     font-family: "Fleur De Leah";
-    font-size: clamp(2.8rem, 5.8vw, 5.6rem);
+    font-size: clamp(2.2rem, 5vw, 5rem);
     font-weight: 400;
     line-height: 1;
+}
+
+.seccion-evento h2 {
+    margin: 15px 0 5px;
+}
+
+.seccion-evento p {
+    margin: 0 0 5px;
 }
 
 .btn-maps {
     display: inline-block;
     margin-top: 20px;
-    padding: 12px 20px;
+    padding: 12px 24px;
     background-color: rgba(84, 106, 104, 0.9);
     color: #fff;
     border-radius: 25px;
     text-decoration: none;
     font-weight: 600;
     box-shadow: 0 6px 18px rgba(84, 106, 104, 0.18);
+    min-height: 44px;
+    line-height: 1.2;
 }
 
 .btn-maps:hover {
@@ -278,18 +340,19 @@ body {
 }
 
 /* ========================================
-   SECCIÓN GALERÍA
+   SECCION GALERIA
    ======================================== */
 
 #galeria {
     padding: 40px 20px;
     background-color: #fdfaf6;
+    overflow: hidden;
 }
 
 #galeria h2 {
-    margin-bottom: -30px;
+    margin-bottom: 10px;
     font-family: "Fleur De Leah";
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 2.5rem);
     color: #546a68;
 }
 
@@ -297,71 +360,51 @@ body {
     position: relative;
     max-width: 500px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 20px;
+    overflow: hidden;
 }
 
 .carrusel {
     position: relative;
     width: 100%;
-    height: 650px;
+    height: clamp(350px, 70vw, 600px);
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: visible;
 }
 
 /* Estilo polaroid */
 .polaroid {
     position: absolute;
-    max-width: 400px;
+    max-width: min(380px, 85%);
     width: 100%;
-    padding: 15px 15px 100px;
+    padding: 12px 12px 80px;
     background: #fff;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     opacity: 0;
     transform: scale(0.8) rotate(0deg);
     transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
 }
 
 .polaroid.active {
     opacity: 1;
     transform: scale(1);
     z-index: 2;
+    pointer-events: auto;
 }
 
-.polaroid:nth-child(1).active {
-    transform: scale(1) rotate(0deg);
-}
-
-.polaroid:nth-child(2).active {
-    transform: scale(1) rotate(2deg);
-}
-
-.polaroid:nth-child(3).active {
-    transform: scale(1) rotate(-4deg);
-}
-
-.polaroid:nth-child(4).active {
-    transform: scale(1) rotate(3deg);
-}
-
-.polaroid:nth-child(5).active {
-    transform: scale(1) rotate(-2deg);
-}
-
-.polaroid:nth-child(6).active {
-    transform: scale(1) rotate(5deg);
-}
-
-.polaroid:nth-child(7).active {
-    transform: scale(1) rotate(-3deg);
-}
+.polaroid:nth-child(1).active { transform: scale(1) rotate(0deg); }
+.polaroid:nth-child(2).active { transform: scale(1) rotate(2deg); }
+.polaroid:nth-child(3).active { transform: scale(1) rotate(-4deg); }
+.polaroid:nth-child(4).active { transform: scale(1) rotate(3deg); }
+.polaroid:nth-child(5).active { transform: scale(1) rotate(-2deg); }
+.polaroid:nth-child(6).active { transform: scale(1) rotate(5deg); }
+.polaroid:nth-child(7).active { transform: scale(1) rotate(-3deg); }
 
 .polaroid img {
     width: 100%;
-    height: auto;
-    display: block;
-    aspect-ratio: 3/3;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
     object-position: center top;
 }
@@ -379,16 +422,21 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    padding: 15px 20px;
+    padding: 12px 16px;
     background-color: rgba(255, 255, 255, 0.8);
     border: none;
     border-radius: 50%;
     color: #546a68;
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 3vw, 2rem);
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease;
     z-index: 3;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .carrusel-btn:hover {
@@ -396,15 +444,15 @@ body {
 }
 
 .carrusel-btn.prev {
-    left: -20px;
+    left: 0;
 }
 
 .carrusel-btn.next {
-    right: -20px;
+    right: 0;
 }
 
 /* ========================================
-   SECCIÓN ITINERARIO DETALLADO
+   SECCION ITINERARIO DETALLADO / TIMELINE
    ======================================== */
 
 #itinerario-detallado {
@@ -413,26 +461,26 @@ body {
 }
 
 #itinerario-detallado h2 {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     font-family: "Fleur De Leah";
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 2.5rem);
     color: #546a68;
 }
 
 .zona-titulo {
-    margin: 40px 0 5px 0;
+    margin: 30px 0 5px 0;
     font-family: "Fleur De Leah";
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
     color: #546a68;
     text-align: left;
-    padding-left: 60px;
+    padding-left: clamp(15px, 5vw, 60px);
 }
 
 .timeline {
     position: relative;
-    max-width: 1000px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 0;
+    padding: 20px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -443,7 +491,7 @@ body {
     position: absolute;
     left: 30%;
     top: 30px;
-    bottom: 50px;
+    bottom: 30px;
     width: 3px;
     background-color: #2c2c2c;
     transform: translateX(-1.5px);
@@ -453,34 +501,29 @@ body {
     position: relative;
     width: 100%;
     display: block;
-    margin-bottom: 30px;
-}
-
-.timeline-item.left,
-.timeline-item.right {
-    display: block;
+    margin-bottom: 25px;
 }
 
 .timeline-content {
     padding: 0;
     background: transparent;
-    max-width: 350px;
+    max-width: calc(70% - 50px);
     text-align: left;
-    margin-left: calc(30% + 40px);
+    margin-left: calc(30% + 35px);
     position: relative;
     z-index: 1;
 }
 
 .timeline-content h3 {
     margin: 0 0 5px 0;
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
     color: #2c2c2c;
     font-weight: 700;
 }
 
 .timeline-content p {
     margin: 0;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
     color: #2c2c2c;
 }
 
@@ -498,7 +541,7 @@ body {
 }
 
 /* ========================================
-   SECCIÓN FIESTA
+   SECCION FIESTA
    ======================================== */
 
 #fiesta {
@@ -509,14 +552,18 @@ body {
 #fiesta h2 {
     margin-bottom: 10px;
     font-family: "Fleur De Leah";
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 2.5rem);
     color: #546a68;
 }
 
 #fiesta .subtitulo {
-    margin-bottom: 40px;
-    font-size: 1rem;
+    margin-bottom: 30px;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
     color: #8296a0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px;
 }
 
 .recuadros-container {
@@ -525,10 +572,11 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding: 0 10px;
 }
 
 .recuadro {
-    padding: 30px 40px;
+    padding: 25px 30px;
     background: #f5f0e8;
     border-radius: 20px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
@@ -546,7 +594,7 @@ body {
 
 .recuadro h3 {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
     color: #546a68;
     font-weight: 600;
 }
@@ -557,11 +605,12 @@ body {
     color: #546a68;
     border: none;
     border-radius: 20px;
-    font-size: 0.95rem;
+    font-size: clamp(0.85rem, 2.5vw, 0.95rem);
     font-weight: 600;
     cursor: pointer;
     transition: filter 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-height: 44px;
 }
 
 .btn-recuadro:hover {
@@ -570,227 +619,7 @@ body {
 }
 
 /* ========================================
-   RESPONSIVE - MÓVIL
-   ======================================== */
-
-@media screen and (max-width: 768px) {
-    /* Asegurar que todo se ajuste al viewport */
-    body, html {
-        overflow-x: hidden;
-        width: 100%;
-    }
-
-    section {
-        width: 100%;
-        overflow-x: hidden;
-    }
-
-    /* Timeline móvil */
-    .timeline {
-        max-width: 100%;
-        padding: 20px 10px;
-    }
-
-    .timeline::before {
-        left: 31.2%;
-        top: 50px;
-        bottom: 60px;
-        transform: translateX(-1.5px);
-    }
-
-    .timeline-item {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .timeline-item.left,
-    .timeline-item.right {
-        display: block;
-    }
-
-    .timeline-content {
-        max-width: calc(70% - 50px);
-        margin-left: calc(30% + 30px);
-    }
-
-    .timeline-punto {
-        left: 30%;
-        transform: translate(-50%, -50%);
-        margin-left: 0;
-    }
-
-    /* Carrusel móvil */
-    .carrusel-container {
-        max-width: 100%;
-        padding: 10px;
-    }
-
-    .carrusel {
-        height: 450px;
-    }
-
-    .polaroid {
-        max-width: 90%;
-        padding: 10px 10px 60px;
-    }
-
-    .carrusel-btn {
-        padding: 10px 15px;
-        font-size: 1.5rem;
-    }
-
-    .carrusel-btn.prev {
-        left: 5px;
-    }
-
-    .carrusel-btn.next {
-        right: 5px;
-    }
-
-    /* Recuadros móvil */
-    .recuadros-container {
-        max-width: 100%;
-        padding: 0 15px;
-    }
-
-    .recuadro {
-        padding: 25px 30px;
-    }
-
-    .recuadro h3 {
-        font-size: 1.3rem;
-    }
-
-    .btn-recuadro {
-        padding: 8px 20px;
-        font-size: 0.9rem;
-    }
-
-    /* Modales móvil */
-    .modal-contenido {
-        max-width: 400px;
-        width: 70%;
-        padding: 85px 20px 30px 20px;
-    }
-
-    /* Zona títulos itinerario móvil */
-    .zona-titulo {
-        padding-left: 20px;
-        font-size: 1.6rem;
-    }
-
-    /* Botones y elementos generales */
-    .btn-maps {
-        padding: 10px 15px;
-        font-size: 0.9rem;
-        white-space: nowrap;
-    }
-
-    #itinerario {
-        padding: 60px 15px;
-    }
-}
-
-@media screen and (max-width: 430px) {
-    html {
-        font-size: 17px;
-    }
-
-    .fecha-boda {
-        font-size: 1.35rem;
-        padding: 0 28px;
-        letter-spacing: 1px;
-    }
-
-    .nombre-david,
-    .nombre-esther {
-        font-size: clamp(4.5rem, 18vw, 5.8rem);
-    }
-
-    #cuenta-regresiva {
-        margin-top: -140px;
-        padding: 30px 16px;
-    }
-
-    #cuenta-regresiva h2 {
-        font-size: 1.9rem;
-    }
-
-    #reloj {
-        width: min(88vw, 360px);
-        height: min(88vw, 360px);
-        padding: 44px 24px;
-        gap: 18px;
-    }
-
-    #reloj div {
-        font-size: 2.3rem;
-    }
-
-    #reloj div:not(:last-child)::after {
-        right: -10px;
-        height: 56px;
-    }
-
-    #reloj div span {
-        font-size: 1rem;
-    }
-
-    #itinerario,
-    #galeria,
-    #fiesta,
-    #regalos,
-    #fotos,
-    #confirmacion,
-    #itinerario-detallado {
-        padding-left: 18px;
-        padding-right: 18px;
-    }
-
-    #fiesta .subtitulo,
-    #regalos .subtitulo,
-    #fotos .subtitulo,
-    #confirmacion .subtitulo,
-    .timeline-content p,
-    .modal-contenido p,
-    .notas-lista li {
-        font-size: 1.02rem;
-        line-height: 1.65;
-    }
-
-    .timeline-content h3,
-    .recuadro h3 {
-        font-size: 1.55rem;
-    }
-
-    .btn-maps,
-    .btn-recuadro,
-    .btn-regalos,
-    .btn-confirmacion,
-    .btn-modal,
-    .modal-contenido button[type="submit"] {
-        font-size: 1rem;
-        padding: 11px 22px;
-    }
-
-    .recuadro {
-        padding: 28px 24px;
-        gap: 18px;
-    }
-
-    .modal-contenido {
-        width: calc(100% - 28px);
-        max-width: none;
-        padding: 85px 18px 28px 18px;
-    }
-
-    .modal-contenido h3 {
-        font-size: 2.2rem;
-    }
-}
-
-/* ========================================
-   SECCIÓN REGALOS
+   SECCION REGALOS
    ======================================== */
 
 #regalos {
@@ -801,17 +630,18 @@ body {
 #regalos h2 {
     margin-bottom: 10px;
     font-family: "Fleur De Leah";
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 2.5rem);
     color: #546a68;
 }
 
 #regalos .subtitulo {
     margin-bottom: 30px;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
     color: #8296a0;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 10px;
 }
 
 .btn-regalos {
@@ -826,6 +656,7 @@ body {
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
+    min-height: 44px;
 }
 
 .btn-regalos:hover {
@@ -835,7 +666,7 @@ body {
 }
 
 /* ========================================
-   SECCIÓN FOTOS
+   SECCION FOTOS
    ======================================== */
 
 #fotos {
@@ -846,17 +677,18 @@ body {
 #fotos h2 {
     margin-bottom: 10px;
     font-family: "Fleur De Leah";
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 2.5rem);
     color: #546a68;
 }
 
 #fotos .subtitulo {
-    margin-bottom: 40px;
-    font-size: 1rem;
+    margin-bottom: 30px;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
     color: #8296a0;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 10px;
 }
 
 .qr-container {
@@ -866,8 +698,8 @@ body {
 }
 
 .qr-placeholder {
-    width: 250px;
-    height: 250px;
+    width: min(250px, 70vw);
+    height: min(250px, 70vw);
     background-color: #ffffff;
     border-radius: 20px;
     display: flex;
@@ -882,28 +714,29 @@ body {
 }
 
 /* ========================================
-   SECCIÓN CONFIRMACIÓN
+   SECCION CONFIRMACION
    ======================================== */
 
 #confirmacion {
-    padding: 40px 20px;
+    padding: 40px 20px 60px;
     background-color: #fdfaf6;
 }
 
 #confirmacion h2 {
     margin-bottom: 10px;
     font-family: "Fleur De Leah";
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 2.5rem);
     color: #546a68;
 }
 
 #confirmacion .subtitulo {
     margin-bottom: 30px;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
     color: #8296a0;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 10px;
 }
 
 .btn-confirmacion {
@@ -918,6 +751,7 @@ body {
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
+    min-height: 44px;
 }
 
 .btn-confirmacion:hover {
@@ -946,6 +780,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px;
 }
 
 .modal-contenido {
@@ -958,14 +793,17 @@ body {
         rgba(84, 106, 104, 1) calc(100% - 18px),
         rgba(84, 106, 104, 1) 100%
     );
-    padding: 90px 20px 30px 20px;
+    padding: 85px 20px 30px 20px;
     border-radius: 20px;
     max-width: 500px;
-    width: calc(100% - 40px);
-    margin: 0 auto;
+    width: 100%;
     position: relative;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     animation: slideIn 0.3s ease;
+    max-height: calc(100vh - 40px);
+    max-height: calc(100dvh - 40px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .modal-contenido::before,
@@ -995,7 +833,7 @@ body {
 
 .modal-contenido h3 {
     margin: 10px 0 20px 0;
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 5vw, 2rem);
     color: #546a68;
     font-family: "Fleur De Leah";
     position: relative;
@@ -1008,6 +846,7 @@ body {
     color: #546a68;
     position: relative;
     z-index: 1;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
 }
 
 .modal-contenido .imagen-outfits {
@@ -1049,9 +888,10 @@ body {
 }
 
 .notas-lista li {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     line-height: 1.6;
     color: #546a68;
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
 }
 
 .btn-modal {
@@ -1067,6 +907,7 @@ body {
     transition: filter 0.3s ease;
     position: relative;
     z-index: 1;
+    min-height: 44px;
 }
 
 .btn-modal:hover {
@@ -1091,6 +932,7 @@ body {
     font-size: 1rem;
     color: #546a68;
     font-family: 'Playfair Display', serif;
+    min-height: 44px;
 }
 
 .modal-contenido button[type="submit"] {
@@ -1103,6 +945,7 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: filter 0.3s ease;
+    min-height: 44px;
 }
 
 .modal-contenido button[type="submit"]:hover {
@@ -1120,12 +963,13 @@ body {
     z-index: 10;
     background-color: rgba(100, 100, 100, 0.6);
     border-radius: 50%;
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
     line-height: 1;
+    border: none;
 }
 
 .cerrar:hover {
@@ -1133,13 +977,13 @@ body {
     color: #ffffff;
 }
 
+/* ========================================
+   ANIMACIONES
+   ======================================== */
+
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes slideIn {
@@ -1150,5 +994,243 @@ body {
     to {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - TABLETS (max 768px)
+   ======================================== */
+
+@media screen and (max-width: 768px) {
+    .overlay p {
+        max-width: 95%;
+        font-size: clamp(0.8rem, 2.8vw, 1rem);
+    }
+
+    .nombre-david {
+        margin: 0 15% 0 5%;
+    }
+
+    .nombre-esther {
+        margin: 0 5% 0 15%;
+    }
+
+    /* Timeline */
+    .timeline {
+        max-width: 100%;
+        padding: 15px 10px;
+    }
+
+    .timeline-content {
+        max-width: calc(70% - 40px);
+        margin-left: calc(30% + 25px);
+    }
+
+    /* Carrusel */
+    .carrusel-container {
+        max-width: 100%;
+        padding: 15px 10px;
+    }
+
+    .carrusel {
+        height: clamp(320px, 65vw, 450px);
+    }
+
+    .polaroid {
+        max-width: 88%;
+        padding: 10px 10px 60px;
+    }
+
+    .carrusel-btn.prev {
+        left: 2px;
+    }
+
+    .carrusel-btn.next {
+        right: 2px;
+    }
+
+    /* Recuadros */
+    .recuadros-container {
+        max-width: 100%;
+    }
+
+    /* Modal */
+    .modal.activo {
+        padding: 15px;
+    }
+
+    .modal-contenido {
+        max-width: none;
+        width: 100%;
+    }
+
+    /* Zona titulos */
+    .zona-titulo {
+        padding-left: 20px;
+    }
+
+    /* Itinerario */
+    .seccion-evento {
+        padding: 40px 15px;
+    }
+
+    .btn-maps {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - MOVILES (max 430px)
+   ======================================== */
+
+@media screen and (max-width: 430px) {
+    .fecha-boda {
+        padding: 0 20px;
+        letter-spacing: 1px;
+    }
+
+    .nombre-david,
+    .nombre-esther {
+        font-size: clamp(2.5rem, 13vw, 4rem);
+    }
+
+    .nombre-david {
+        margin: 0 10% 0 5%;
+    }
+
+    .nombre-esther {
+        margin: 0 5% 0 10%;
+    }
+
+    #reloj {
+        width: min(85vw, 320px);
+        height: min(85vw, 320px);
+        padding: 25px 14px;
+        gap: 10px;
+    }
+
+    #reloj div {
+        font-size: clamp(1.5rem, 5.5vw, 2.2rem);
+    }
+
+    #reloj div:not(:last-child)::after {
+        right: -6px;
+        height: 40px;
+    }
+
+    #reloj div span {
+        font-size: 0.8rem;
+    }
+
+    #cuenta-regresiva h2 {
+        font-size: 1.5rem;
+    }
+
+    .seccion-evento,
+    #galeria,
+    #fiesta,
+    #regalos,
+    #fotos,
+    #confirmacion,
+    #itinerario-detallado {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .carrusel {
+        height: clamp(280px, 60vw, 380px);
+    }
+
+    .polaroid {
+        max-width: 90%;
+        padding: 8px 8px 45px;
+    }
+
+    #galeria h2 {
+        font-size: 1.8rem;
+    }
+
+    .titulo-cinta {
+        width: clamp(200px, 65vw, 350px);
+        height: clamp(50px, 12vw, 85px);
+        font-size: clamp(1.8rem, 6vw, 3.5rem);
+        padding: 0 15px;
+    }
+
+    .modal-contenido {
+        padding: 80px 16px 24px 16px;
+    }
+
+    .wave-divider-inverted {
+        margin-top: -40px;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - MOVILES PEQUENOS (max 360px)
+   ======================================== */
+
+@media screen and (max-width: 360px) {
+    .fecha-boda {
+        padding: 0 12px;
+        letter-spacing: 0.5px;
+    }
+
+    .nombre-david,
+    .nombre-esther {
+        font-size: clamp(2.2rem, 12vw, 3rem);
+    }
+
+    #reloj {
+        width: min(88vw, 270px);
+        height: min(88vw, 270px);
+        padding: 20px 10px;
+        gap: 8px;
+    }
+
+    #reloj div {
+        font-size: 1.5rem;
+    }
+
+    #reloj div:not(:last-child)::after {
+        right: -5px;
+        height: 30px;
+    }
+
+    #reloj div span {
+        font-size: 0.7rem;
+    }
+
+    #cuenta-regresiva h2 {
+        font-size: 1.3rem;
+    }
+
+    .carrusel {
+        height: 260px;
+    }
+
+    .polaroid {
+        padding: 6px 6px 35px;
+    }
+
+    .modal-contenido {
+        padding: 75px 12px 20px 12px;
+    }
+
+    .timeline-content {
+        max-width: calc(70% - 25px);
+        margin-left: calc(30% + 20px);
+    }
+
+    .titulo-cinta {
+        width: clamp(180px, 70vw, 280px);
+        height: clamp(45px, 14vw, 70px);
+        font-size: clamp(1.6rem, 7vw, 2.5rem);
+    }
+
+    .separador-anillos::before {
+        width: clamp(80px, 22vw, 150px);
+        height: clamp(80px, 22vw, 150px);
     }
 }
