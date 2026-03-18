@@ -2,11 +2,21 @@
    ESTILOS GENERALES
    ======================================== */
 
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Playfair Display', serif;
-    margin: 0;
     text-align: center;
-    color: #4a5d4e;
+    color: #546a68;
     background-color: #fdfaf6;
 }
 
@@ -55,7 +65,7 @@ body {
 
 /* Nombres de los novios */
 .nombre-david,
-.nombre-nicole {
+.nombre-esther {
     font-size: 4rem;
     font-family: "Fleur De Leah";
     color: #ffffff;
@@ -66,7 +76,7 @@ body {
     margin: 0 30% 1% 0;
 }
 
-.nombre-nicole {
+.nombre-esther {
     align-self: flex-end;
     margin: 3% 0 0 30%;
 }
@@ -75,7 +85,7 @@ body {
 .circulo-ampersand {
     width: 30px;
     height: 30px;
-    background-color: #87c061ad;
+    background-color: rgba(84, 106, 104, 0.9);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -87,7 +97,7 @@ body {
 .circulo-ampersand span {
     font-size: 1.8rem;
     font-style: italic;
-    color: #4a5d4e;
+    color: #546a68;
 }
 
 /* ========================================
@@ -109,7 +119,7 @@ body {
 }
 
 .wave-divider-2 {
-    fill: #97c479;
+    fill: rgba(84, 106, 104, 0.9);
     margin: 40px 0 0 0;
 }
 
@@ -123,13 +133,13 @@ body {
 }
 
 .wave-divider-inverted {
-    fill: #87c061ad;
+    fill: rgba(84, 106, 104, 0.9);
     margin: -50px 0 0 0;
     transform: translateY(clamp(-60px, -5vh, -20px));
 }
 
 .wave-divider-inverted-2 {
-    fill: #79acc4;
+    fill: rgba(84, 106, 104, 0.9);
     transform: translateY(clamp(-60px, -1vh, -20px));
 }
 
@@ -138,7 +148,7 @@ body {
    ======================================== */
 
 #cuenta-regresiva {
-    padding: 60px 20px;
+    padding: 40px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -162,13 +172,13 @@ body {
     justify-content: center;
     align-items: center;
     gap: 30px;
-    padding: 60px;
-    width: clamp(150px, 25vw, 400px);
-    height: clamp(150px, 25vw, 400px);
+    padding: 80px;
+    width: clamp(300px, 45vw, 650px);
+    height: clamp(300px, 45vw, 650px);
     background: #ffffff;
     border-radius: 50%;
     box-shadow: 0 10px 40px rgba(91, 95, 89, 0.3);
-    font-size: clamp(1rem, 5vw, 2rem);
+    font-size: clamp(1.2rem, 6vw, 2.5rem);
 }
 
 #reloj div {
@@ -177,24 +187,24 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    font-size: clamp(1.5rem, 6vw, 3rem);
+    font-size: clamp(2rem, 8vw, 4rem);
 }
 
 #reloj div:not(:last-child)::after {
     content: "";
     position: absolute;
-    right: -20px;
-    width: 1px;
-    height: 60px;
-    background-color: #87c061ad;
+    right: -15px;
+    width: 2px;
+    height: 80px;
+    background-color: rgba(84, 106, 104, 0.9);
 }
 
 #reloj div span {
     display: block;
-    margin-top: 5px;
-    font-size: clamp(1rem, 2vw, 1.5rem);
+    margin-top: 8px;
+    font-size: clamp(1.2rem, 3vw, 2rem);
     font-weight: bold;
-    color: #4a5d4e;
+    color: #546a68;
 }
 
 /* ========================================
@@ -202,7 +212,7 @@ body {
    ======================================== */
 
 #anillos {
-    padding: 80px 20px;
+    padding: 40px 20px;
     margin-top: -50px;
     display: flex;
     justify-content: center;
@@ -228,16 +238,20 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: clamp(200px, 25vw, 450px);
-    height: clamp(64px, 12vw, 120px);
-    padding: 0 12px;
+    width: clamp(260px, 40vw, 520px);
+    height: clamp(72px, 11vw, 110px);
+    padding: 0 26px;
     margin: 0 0 16px 0;
-    background: #ffffff;
-    color: #4a5d4e;
-    border-radius: 6px;
-    box-shadow: 0 10px 40px rgba(91, 95, 89, 0.3);
-    font-size: clamp(2.5rem, 5vw, 15rem);
-    font-weight: 600;
+    background-image: url('resources/Cinta.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #ffffff;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: none;
+    font-family: "Fleur De Leah";
+    font-size: clamp(2.8rem, 5.8vw, 5.6rem);
+    font-weight: 400;
     line-height: 1;
 }
 
@@ -245,12 +259,12 @@ body {
     display: inline-block;
     margin-top: 20px;
     padding: 12px 20px;
-    background-color: #87c061ad;
+    background-color: rgba(84, 106, 104, 0.9);
     color: #fff;
     border-radius: 25px;
     text-decoration: none;
     font-weight: 600;
-    box-shadow: 0 6px 18px rgba(135, 192, 97, 0.18);
+    box-shadow: 0 6px 18px rgba(84, 106, 104, 0.18);
 }
 
 .btn-maps:hover {
@@ -262,7 +276,7 @@ body {
    ======================================== */
 
 #galeria {
-    padding: 80px 20px;
+    padding: 40px 20px;
     background-color: #fdfaf6;
 }
 
@@ -270,7 +284,7 @@ body {
     margin-bottom: -30px;
     font-family: "Fleur De Leah";
     font-size: 2.5rem;
-    color: #4a5d4e;
+    color: #546a68;
 }
 
 .carrusel-container {
@@ -350,7 +364,7 @@ body {
     margin-top: 15px;
     font-family: 'Caveat', cursive;
     font-size: 1.5rem;
-    color: #4a5d4e;
+    color: #546a68;
     text-align: center;
 }
 
@@ -363,7 +377,7 @@ body {
     background-color: rgba(255, 255, 255, 0.8);
     border: none;
     border-radius: 50%;
-    color: #4a5d4e;
+    color: #546a68;
     font-size: 2rem;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -388,7 +402,7 @@ body {
    ======================================== */
 
 #itinerario-detallado {
-    padding: 80px 20px;
+    padding: 40px 20px;
     background-color: #fdfaf6;
 }
 
@@ -396,7 +410,16 @@ body {
     margin-bottom: 50px;
     font-family: "Fleur De Leah";
     font-size: 2.5rem;
-    color: #4a5d4e;
+    color: #546a68;
+}
+
+.zona-titulo {
+    margin: 40px 0 5px 0;
+    font-family: "Fleur De Leah";
+    font-size: 2rem;
+    color: #546a68;
+    text-align: left;
+    padding-left: 60px;
 }
 
 .timeline {
@@ -473,7 +496,7 @@ body {
    ======================================== */
 
 #fiesta {
-    padding: 80px 20px;
+    padding: 40px 20px;
     background-color: #fdfaf6;
 }
 
@@ -481,13 +504,13 @@ body {
     margin-bottom: 10px;
     font-family: "Fleur De Leah";
     font-size: 2.5rem;
-    color: #4a5d4e;
+    color: #546a68;
 }
 
 #fiesta .subtitulo {
     margin-bottom: 40px;
     font-size: 1rem;
-    color: #7a8a7d;
+    color: #8296a0;
 }
 
 .recuadros-container {
@@ -518,14 +541,14 @@ body {
 .recuadro h3 {
     margin: 0;
     font-size: 1.5rem;
-    color: #4a5d4e;
+    color: #546a68;
     font-weight: 600;
 }
 
 .btn-recuadro {
     padding: 10px 25px;
     background-color: #ffffff;
-    color: #4a5d4e;
+    color: #546a68;
     border: none;
     border-radius: 20px;
     font-size: 0.95rem;
@@ -545,6 +568,17 @@ body {
    ======================================== */
 
 @media screen and (max-width: 768px) {
+    /* Asegurar que todo se ajuste al viewport */
+    body, html {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    section {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
     /* Timeline móvil */
     .timeline {
         max-width: 100%;
@@ -625,6 +659,30 @@ body {
         padding: 8px 20px;
         font-size: 0.9rem;
     }
+
+    /* Modales móvil */
+    .modal-contenido {
+        max-width: 400px;
+        width: 70%;
+        padding: 85px 20px 30px 20px;
+    }
+
+    /* Zona títulos itinerario móvil */
+    .zona-titulo {
+        padding-left: 20px;
+        font-size: 1.6rem;
+    }
+
+    /* Botones y elementos generales */
+    .btn-maps {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+
+    #itinerario {
+        padding: 60px 15px;
+    }
 }
 
 /* ========================================
@@ -632,7 +690,7 @@ body {
    ======================================== */
 
 #regalos {
-    padding: 80px 20px;
+    padding: 40px 20px;
     background-color: #fdfaf6;
 }
 
@@ -640,13 +698,13 @@ body {
     margin-bottom: 10px;
     font-family: "Fleur De Leah";
     font-size: 2.5rem;
-    color: #4a5d4e;
+    color: #546a68;
 }
 
 #regalos .subtitulo {
     margin-bottom: 30px;
     font-size: 1rem;
-    color: #7a8a7d;
+    color: #8296a0;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -677,7 +735,7 @@ body {
    ======================================== */
 
 #fotos {
-    padding: 80px 20px;
+    padding: 40px 20px;
     background-color: #fdfaf6;
 }
 
@@ -685,13 +743,13 @@ body {
     margin-bottom: 10px;
     font-family: "Fleur De Leah";
     font-size: 2.5rem;
-    color: #4a5d4e;
+    color: #546a68;
 }
 
 #fotos .subtitulo {
     margin-bottom: 40px;
     font-size: 1rem;
-    color: #7a8a7d;
+    color: #8296a0;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -715,7 +773,7 @@ body {
 }
 
 .qr-placeholder p {
-    color: #7a8a7d;
+    color: #8296a0;
     font-size: 1.2rem;
 }
 
@@ -724,7 +782,7 @@ body {
    ======================================== */
 
 #confirmacion {
-    padding: 80px 20px;
+    padding: 40px 20px;
     background-color: #fdfaf6;
 }
 
@@ -732,13 +790,13 @@ body {
     margin-bottom: 10px;
     font-family: "Fleur De Leah";
     font-size: 2.5rem;
-    color: #4a5d4e;
+    color: #546a68;
 }
 
 #confirmacion .subtitulo {
     margin-bottom: 30px;
     font-size: 1rem;
-    color: #7a8a7d;
+    color: #8296a0;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -787,27 +845,128 @@ body {
 }
 
 .modal-contenido {
-    background-color: #fdfaf6;
-    padding: 40px;
+    background: linear-gradient(
+        to bottom,
+        rgba(84, 106, 104, 1) 0%,
+        rgba(84, 106, 104, 1) 45px,
+        #ffffff 45px,
+        #ffffff calc(100% - 18px),
+        rgba(84, 106, 104, 1) calc(100% - 18px),
+        rgba(84, 106, 104, 1) 100%
+    );
+    padding: 90px 20px 30px 20px;
     border-radius: 20px;
     max-width: 500px;
-    width: 90%;
+    width: calc(100% - 40px);
+    margin: 0 auto;
     position: relative;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     animation: slideIn 0.3s ease;
 }
 
-.modal-contenido h3 {
-    margin: 0 0 20px 0;
+.modal-contenido::before,
+.modal-contenido::after {
+    content: none;
+}
+
+.icono-modal {
+    position: absolute;
+    top: 45px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 2rem;
-    color: #4a5d4e;
+    color: rgba(84, 106, 104, 1);
+    font-weight: 300;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    border: 2px solid rgba(84, 106, 104, 0.2);
+}
+
+.modal-contenido h3 {
+    margin: 10px 0 20px 0;
+    font-size: 2rem;
+    color: #546a68;
     font-family: "Fleur De Leah";
+    position: relative;
+    z-index: 1;
 }
 
 .modal-contenido p {
     margin: 0;
     line-height: 1.6;
-    color: #4a5d4e;
+    color: #546a68;
+    position: relative;
+    z-index: 1;
+}
+
+.modal-contenido .imagen-outfits {
+    display: block;
+    margin: 16px auto 0;
+    width: min(100%, 320px);
+    border-radius: 12px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+}
+
+.modal-contenido .modal-texto-secundario {
+    margin-top: 14px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #7a8d8b;
+}
+
+.modal-contenido .metodos-regalo {
+    margin: 16px auto 0;
+    max-width: 360px;
+    text-align: center;
+    padding-left: 0;
+    list-style-position: inside;
+    line-height: 1.6;
+    color: #546a68;
+}
+
+.modal-contenido .metodos-regalo li + li {
+    margin-top: 10px;
+}
+
+.notas-lista {
+    text-align: left;
+    padding-left: 20px;
+    margin: 20px 0;
+    list-style-type: disc;
+    position: relative;
+    z-index: 1;
+}
+
+.notas-lista li {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #546a68;
+}
+
+.btn-modal {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: rgba(84, 106, 104, 0.9);
+    color: #fff;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 6px 18px rgba(84, 106, 104, 0.18);
+    transition: filter 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-modal:hover {
+    filter: brightness(0.95);
 }
 
 /* Formulario dentro del modal */
@@ -816,6 +975,8 @@ body {
     flex-direction: column;
     gap: 15px;
     margin-top: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .modal-contenido input,
@@ -824,13 +985,13 @@ body {
     border: 1px solid #d4d4d4;
     border-radius: 10px;
     font-size: 1rem;
-    color: #4a5d4e;
+    color: #546a68;
     font-family: 'Playfair Display', serif;
 }
 
 .modal-contenido button[type="submit"] {
     padding: 12px 20px;
-    background-color: #87c061ad;
+    background-color: rgba(84, 106, 104, 0.9);
     color: #fff;
     border: none;
     border-radius: 10px;
@@ -846,16 +1007,26 @@ body {
 
 .cerrar {
     position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 2rem;
-    color: #4a5d4e;
+    top: 8px;
+    right: 10px;
+    font-size: 1.4rem;
+    color: #ffffff;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    z-index: 10;
+    background-color: rgba(100, 100, 100, 0.6);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
 }
 
 .cerrar:hover {
-    color: #87c061;
+    background-color: rgba(100, 100, 100, 0.8);
+    color: #ffffff;
 }
 
 @keyframes fadeIn {

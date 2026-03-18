@@ -2,7 +2,7 @@
 // CUENTA REGRESIVA
 // ========================================
 
-const fechaBoda = new Date("Oct 11, 2026 14:30:00").getTime();
+const fechaBoda = new Date("Nov 7, 2026 14:30:00").getTime();
 
 const countdown = setInterval(() => {
     const ahora = new Date().getTime();

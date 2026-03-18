@@ -11,20 +11,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap" rel="stylesheet">
     
     <!-- Estilos -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
 
     <!-- SECCIÓN PORTADA -->
     <section id="portada" class="pantalla-completa">
         <div class="overlay">
-            <div class="fecha-boda">11 de Octubre de 2026</div>
+            <div class="fecha-boda">Sábado 7 de Noviembre de 2026</div>
             <div class="nombres-container">
                 <h1 class="nombre-david">David</h1>
                 <div class="circulo-ampersand">
                     <span>&</span>
                 </div>
-                <h1 class="nombre-nicole">Esther</h1>
+                <h1 class="nombre-esther">Esther</h1>
             </div>
             <p>"Texto texto texto Texto texto texto Texto texto texto Texto texto texto Texto texto texto Texto texto texto Texto texto texto Texto texto texto Texto texto texto "</p>
             <div class="flecha-abajo">↓</div>
@@ -53,10 +53,10 @@
     <section id="itinerario">
         <h1 id="ceremonia">Ceremonia</h1>
         <h2>Día</h2>
-        <p>11 de Octubre de 2026</p>
+        <p>7 de Noviembre de 2026</p>
         <h2>Lugar</h2>
-        <p>Ibiza ---- ---- ---</p>
-        <a class="btn-maps" href="https://www.google.com/maps/search/?api=1&query=LAT,LNG" target="_blank" rel="noopener">Ver ubicación</a>
+        <p>Can Frare<br>Sant Antoni de Portmany, Illes Balears</p>
+        <a class="btn-maps" href="https://www.google.com/maps/search/?api=1&query=Can+Frare+Sant+Antoni+de+Portmany+Ibiza" target="_blank" rel="noopener">Ver ubicación</a>
     </section>
 
     <!-- SEPARADOR -->
@@ -66,10 +66,10 @@
     <section id="itinerario">
         <h1 id="ceremonia">Celebración</h1>
         <h2>Día</h2>
-        <p>11 de Octubre de 2026</p>
+        <p>7 de Noviembre de 2026</p>
         <h2>Lugar</h2>
-        <p>Ibiza ---- ---- ---</p>
-        <a class="btn-maps" href="https://www.google.com/maps/search/?api=1&query=LAT,LNG" target="_blank" rel="noopener">Ver ubicación</a>
+        <p>Can Frare<br>Sant Antoni de Portmany, Illes Balears</p>
+        <a class="btn-maps" href="https://www.google.com/maps/search/?api=1&query=Can+Frare+Sant+Antoni+de+Portmany+Ibiza" target="_blank" rel="noopener">Ver ubicación</a>
     </section>
 
     <!-- ONDAS DIVISORAS 2 -->
@@ -116,7 +116,7 @@
     <!-- SECCIÓN FIESTA -->
     <section id="fiesta">
         <h2>Fiesta</h2>
-        <p class="subtitulo">Detalles importantes para disfrutar juntos</p>
+        <p class="subtitulo">Necesitamos hacer de este evento el mejor, por eso hagamos una fiesta épica para celebrarlo.</p>
         
         <div class="recuadros-container">
             <div class="recuadro">
@@ -140,38 +140,56 @@
     <div id="modal-musica" class="modal" onclick="cerrarModal(event, 'modal-musica')">
         <div class="modal-contenido" onclick="event.stopPropagation()">
             <span class="cerrar" onclick="cerrarModal(event, 'modal-musica')">&times;</span>
+            <div class="icono-modal">♪</div>
             <h3>Música</h3>
-            <p>Aquí puedes agregar detalles sobre la música de la fiesta, preferencias, peticiones especiales, etc.</p>
+            <p>Hemos creado una playlist para la boda, agrega en ella la canción que te gustaría escuchar.</p>
+            <a class="btn-modal" href="#" target="_blank" rel="noopener">Ir a la playlist</a>
         </div>
     </div>
 
     <div id="modal-vestimenta" class="modal" onclick="cerrarModal(event, 'modal-vestimenta')">
         <div class="modal-contenido" onclick="event.stopPropagation()">
             <span class="cerrar" onclick="cerrarModal(event, 'modal-vestimenta')">&times;</span>
+            <div class="icono-modal">👔</div>
             <h3>Vestimenta</h3>
-            <p>Aquí puedes agregar detalles sobre el código de vestimenta, colores recomendados, estilo formal/informal, etc.</p>
+            <p>Outfits Ideas</p>
+            <img class="imagen-outfits" src="resources/Outfits.jpeg" alt="Outfits Ideas" loading="lazy">
         </div>
     </div>
 
     <div id="modal-notas" class="modal" onclick="cerrarModal(event, 'modal-notas')">
         <div class="modal-contenido" onclick="event.stopPropagation()">
             <span class="cerrar" onclick="cerrarModal(event, 'modal-notas')">&times;</span>
+            <div class="icono-modal">📋</div>
             <h3>Notas</h3>
-            <p>Aquí puedes agregar notas importantes, recordatorios, información adicional sobre la celebración, etc.</p>
+            <ul class="notas-lista">
+                <li>¡Por favor, sed puntuales!</li>
+                <li><strong>¡Confirmar asistencia con la mayor brevedad posible!</strong> Organizar esta unión requiere de mucha antelación con proveedores, por lo que necesitamos que confirméis vuestra asistencia antes del <strong>1 de MAYO</strong>.</li>
+                <li><strong>Rogamos se cuide y respete el entorno y mobiliario de la villa mientras disfruta de la fiesta.</strong></li>
+                <li>Llevar abrigo para disfrutar de los exteriores a las horas menos cálidas.</li>
+                <li>Olvidarse de todo y ¡¡¡a disfrutar!!!</li>
+            </ul>
         </div>
     </div>
 
     <div id="modal-regalos" class="modal" onclick="cerrarModal(event, 'modal-regalos')">
         <div class="modal-contenido" onclick="event.stopPropagation()">
             <span class="cerrar" onclick="cerrarModal(event, 'modal-regalos')">&times;</span>
+            <div class="icono-modal">🎁</div>
             <h3>Regalos</h3>
-            <p>Aquí puedes agregar información sobre lista de bodas, número de cuenta, o cualquier detalle sobre regalos.</p>
+                <p>Lo único que deseamos es pasar un día inolvidable con vosotros, pero si deseáis regalarnos algo más que tu hermosa presencia nos encantará que sea en efectivo para que no se lo apodere HACIENDA 😂.</p>
+                <p class="modal-texto-secundario">Para quienes deseen hacer un regalo en efectivo, contaremos con sobres disponibles para depositar en un cofre.</p>
+                <ul class="metodos-regalo">
+                    <li><strong>Depósito bancario:</strong><br>Cuenta: XXXXXXXXXXXXXXXXXX</li>
+                    <li><strong>PayPal:</strong><br>Correo: ESTHER.STR88@HOTMAIL.COM</li>
+                </ul>
         </div>
     </div>
 
     <div id="modal-confirmacion" class="modal" onclick="cerrarModal(event, 'modal-confirmacion')">
         <div class="modal-contenido" onclick="event.stopPropagation()">
             <span class="cerrar" onclick="cerrarModal(event, 'modal-confirmacion')">&times;</span>
+            <div class="icono-modal">✓</div>
             <h3>Confirmar Asistencia</h3>
             <form id="rsvp-form">
                 <input type="text" placeholder="Nombre completo" required>
@@ -197,18 +215,21 @@
     <!-- SECCIÓN ITINERARIO DETALLADO -->
     <section id="itinerario-detallado">
         <h2>Itinerario</h2>
+        
+        <!-- ZONA COCTEL & LUNCH -->
+        <h3 class="zona-titulo">Zona Coctel & Lunch</h3>
         <div class="timeline">
             <div class="timeline-item left">
                 <div class="timeline-content">
-                    <h3>14:00</h3>
-                    <p>Llegada de invitados</p>
+                    <h3>13:30</h3>
+                    <p>Recepción y welcome drink</p>
                 </div>
                 <div class="timeline-punto"></div>
             </div>
 
             <div class="timeline-item right">
                 <div class="timeline-content">
-                    <h3>15:00</h3>
+                    <h3>14:30</h3>
                     <p>Ceremonia</p>
                 </div>
                 <div class="timeline-punto"></div>
@@ -216,24 +237,28 @@
 
             <div class="timeline-item left">
                 <div class="timeline-content">
-                    <h3>16:00</h3>
-                    <p>Cóctel y fotografías</p>
+                    <h3>15:30</h3>
+                    <p>Cocktail & lunch</p>
                 </div>
                 <div class="timeline-punto"></div>
             </div>
+        </div>
 
+        <!-- ZONA POOL -->
+        <h3 class="zona-titulo">Zona Pool</h3>
+        <div class="timeline">
             <div class="timeline-item right">
                 <div class="timeline-content">
-                    <h3>18:00</h3>
-                    <p>Banquete</p>
+                    <h3>17:30</h3>
+                    <p>Fiesta</p>
                 </div>
                 <div class="timeline-punto"></div>
             </div>
 
             <div class="timeline-item left">
                 <div class="timeline-content">
-                    <h3>21:00</h3>
-                    <p>Baile y fiesta</p>
+                    <h3>2:00</h3>
+                    <p>Fin de fiesta</p>
                 </div>
                 <div class="timeline-punto"></div>
             </div>
