@@ -13,6 +13,12 @@ html, body {
     overflow-x: hidden;
 }
 
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
 body {
     font-family: 'Playfair Display', serif;
     text-align: center;
@@ -682,6 +688,104 @@ body {
 
     #itinerario {
         padding: 60px 15px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    html {
+        font-size: 17px;
+    }
+
+    .fecha-boda {
+        font-size: 1.35rem;
+        padding: 0 28px;
+        letter-spacing: 1px;
+    }
+
+    .nombre-david,
+    .nombre-esther {
+        font-size: clamp(4.5rem, 18vw, 5.8rem);
+    }
+
+    #cuenta-regresiva {
+        margin-top: -140px;
+        padding: 30px 16px;
+    }
+
+    #cuenta-regresiva h2 {
+        font-size: 1.9rem;
+    }
+
+    #reloj {
+        width: min(88vw, 360px);
+        height: min(88vw, 360px);
+        padding: 44px 24px;
+        gap: 18px;
+    }
+
+    #reloj div {
+        font-size: 2.3rem;
+    }
+
+    #reloj div:not(:last-child)::after {
+        right: -10px;
+        height: 56px;
+    }
+
+    #reloj div span {
+        font-size: 1rem;
+    }
+
+    #itinerario,
+    #galeria,
+    #fiesta,
+    #regalos,
+    #fotos,
+    #confirmacion,
+    #itinerario-detallado {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    #fiesta .subtitulo,
+    #regalos .subtitulo,
+    #fotos .subtitulo,
+    #confirmacion .subtitulo,
+    .timeline-content p,
+    .modal-contenido p,
+    .notas-lista li {
+        font-size: 1.02rem;
+        line-height: 1.65;
+    }
+
+    .timeline-content h3,
+    .recuadro h3 {
+        font-size: 1.55rem;
+    }
+
+    .btn-maps,
+    .btn-recuadro,
+    .btn-regalos,
+    .btn-confirmacion,
+    .btn-modal,
+    .modal-contenido button[type="submit"] {
+        font-size: 1rem;
+        padding: 11px 22px;
+    }
+
+    .recuadro {
+        padding: 28px 24px;
+        gap: 18px;
+    }
+
+    .modal-contenido {
+        width: calc(100% - 28px);
+        max-width: none;
+        padding: 85px 18px 28px 18px;
+    }
+
+    .modal-contenido h3 {
+        font-size: 2.2rem;
     }
 }
 
