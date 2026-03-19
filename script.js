@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Obtener los valores del formulario
             const nombre = form.querySelector('input[name="nombre"]').value;
             const asistencia = form.querySelector('input[name="asistencia"]:checked').value;
-            const nota = form.querySelector('textarea[name="nota"]').value.trim();
+            const nota = form.querySelector('textarea[name="notas"]').value.trim();
             const bebida = document.querySelector('#modal-bebida textarea[name="bebida"]')?.value.trim() || 'Sin preferencia';
             const asistenciaTexto = asistencia === 'si' ? 'SÍ confirmo mi asistencia' : 'NO puedo asistir';
             const confirmacion = asistencia === 'si' ? 'Afirmativa' : 'Negativa';
