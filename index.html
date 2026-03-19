@@ -123,6 +123,11 @@
                 <h3>Música</h3>
                 <button class="btn-recuadro" onclick="abrirModal('modal-musica')">Ver detalles</button>
             </div>
+
+            <div class="recuadro">
+                <h3>Bebida</h3>
+                <button class="btn-recuadro" onclick="abrirModal('modal-bebida')">Ver detalles</button>
+            </div>
             
             <div class="recuadro">
                 <h3>Vestimenta</h3>
@@ -147,6 +152,16 @@
         </div>
     </div>
 
+    <div id="modal-bebida" class="modal" onclick="cerrarModal(event, 'modal-bebida')">
+        <div class="modal-contenido" onclick="event.stopPropagation()">
+            <span class="cerrar" onclick="cerrarModal(event, 'modal-bebida')">&times;</span>
+            <div class="icono-modal">🍸</div>
+            <h3>Bebida</h3>
+            <p>Dinos que quieres beber:</p>
+            <textarea class="textarea-bebida" name="bebida" rows="5" placeholder="Ejemplo: mojito, gin tonic, cerveza, ron cola...."></textarea>
+        </div>
+    </div>
+
     <div id="modal-vestimenta" class="modal" onclick="cerrarModal(event, 'modal-vestimenta')">
         <div class="modal-contenido" onclick="event.stopPropagation()">
             <span class="cerrar" onclick="cerrarModal(event, 'modal-vestimenta')">&times;</span>
@@ -165,7 +180,7 @@
             <ul class="notas-lista">
                 <li>¡Por favor, sed puntuales!</li>
                 <li><strong>¡Confirmar asistencia con la mayor brevedad posible!</strong> Organizar esta unión requiere de mucha antelación con proveedores, por lo que necesitamos que confirméis vuestra asistencia antes del <strong>1 de MAYO</strong>.</li>
-                <li><strong>Rogamos se cuide y respete el entorno y mobiliario de la villa mientras disfruta de la fiesta.</strong></li>
+                <li><strong>Os pedimos que porfavor cuideis y respetéis el entorno y mobiliario de la villa mientras disfrutáis de la fiesta.</strong></li>
                 <li>Llevar abrigo para disfrutar de los exteriores a las horas menos cálidas.</li>
                 <li>Olvidarse de todo y ¡¡¡a disfrutar!!!</li>
             </ul>
@@ -192,11 +207,18 @@
             <div class="icono-modal">✓</div>
             <h3>Confirmar Asistencia</h3>
             <form id="rsvp-form">
-                <input type="text" placeholder="Nombre completo" required>
-                <select>
-                    <option value="si">Sí, confirmo</option>
-                    <option value="no">No puedo ir</option>
-                </select>
+                <div class="asistencia-opciones" role="radiogroup" aria-label="Selecciona asistencia">
+                    <label class="opcion-asistencia">
+                        <input type="radio" name="asistencia" value="si" required checked>
+                        <span>Sí, confirmo</span>
+                    </label>
+                    <label class="opcion-asistencia">
+                        <input type="radio" name="asistencia" value="no">
+                        <span>No puedo ir</span>
+                    </label>
+                </div>
+                <input type="text" name="nombre" placeholder="Nombre completo" required>
+                <textarea name="nota" rows="4" placeholder="Alergias, preferencias alimentarias u otras cosas a tener en cuenta"></textarea>
                 <button type="submit">Enviar Asistencia</button>
             </form>
         </div>
@@ -292,6 +314,7 @@
     </section>
 
     <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

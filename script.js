@@ -89,34 +89,68 @@ function cerrarModal(event, modalId) {
 // FORMULARIO DE CONFIRMACIÓN
 // ========================================
 
+const EMAILJS_PUBLIC_KEY  = 'Ph9dS-ZMypyfJtSjp';
+const EMAILJS_SERVICE_ID  = 'service_cy9u41g';
+const EMAILJS_TEMPLATE_ID = 'template_60r3sng';
+
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('rsvp-form');
+
+    const emailJsConfigCompleta = Boolean(
+        EMAILJS_PUBLIC_KEY && EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID
+    );
+
+    if (window.emailjs && emailJsConfigCompleta) {
+        emailjs.init({
+            publicKey: EMAILJS_PUBLIC_KEY
+        });
+    }
     
     if (form) {
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             // Obtener los valores del formulario
-            const nombre = form.querySelector('input[type="text"]').value;
-            const asistencia = form.querySelector('select').value;
+            const nombre = form.querySelector('input[name="nombre"]').value;
+            const asistencia = form.querySelector('input[name="asistencia"]:checked').value;
+            const nota = form.querySelector('textarea[name="nota"]').value.trim();
+            const bebida = document.querySelector('#modal-bebida textarea[name="bebida"]')?.value.trim() || 'Sin preferencia';
             const asistenciaTexto = asistencia === 'si' ? 'SÍ confirmo mi asistencia' : 'NO puedo asistir';
-            
-            // Configurar el correo
-            const emailDestino = 'nachotapia02@gmail.com'; // Cambia esto por tu correo
-            const asunto = 'Confirmación de asistencia - Boda David y Esther';
-            const cuerpo = `Nombre: ${nombre}\n\nAsistencia: ${asistenciaTexto}\n\n---\nEnviado desde la invitación de boda`;
-            
-            // Crear el enlace mailto
-            const mailtoLink = `mailto:${emailDestino}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
-            
-            // Abrir el cliente de correo
-            window.location.href = mailtoLink;
-            
-            // Cerrar el modal después de un breve delay
-            setTimeout(() => {
+            const confirmacion = asistencia === 'si' ? 'Afirmativa' : 'Negativa';
+            const notaTexto = nota || 'Sin observaciones';
+
+            const templateParams = {
+                nombre: nombre,
+                Confirmacion: confirmacion,
+                afirmacion: asistencia,
+                bebida: bebida,
+                nota: notaTexto
+            };
+
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const textoOriginal = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando...';
+
+            try {
+                if (!window.emailjs || !emailJsConfigCompleta) {
+                    throw new Error('Configuracion EmailJS pendiente');
+                }
+
+                await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+                alert('Confirmacion enviada correctamente. Gracias.');
+
+                // Cerrar el modal despues del envio
                 cerrarModal(null, 'modal-confirmacion');
                 form.reset();
-            }, 500);
+            } catch (error) {
+                console.error('Error al enviar con EmailJS:', error);
+                alert('No se pudo enviar la confirmacion. Revisa la configuracion de EmailJS e intentalo de nuevo.');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = textoOriginal;
+            }
+            
         });
     }
 });
