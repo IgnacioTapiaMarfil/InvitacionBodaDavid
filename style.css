@@ -152,7 +152,7 @@ button:focus-visible,
 
 .nombre-david,
 .nombre-esther {
-    font-size: clamp(2.8rem, 10vw, 4rem);
+    font-size: clamp(3.6rem, 12vw, 5.6rem);
     font-family: "Fleur De Leah";
     color: #ffffff;
     margin: 0;
@@ -160,31 +160,31 @@ button:focus-visible,
 
 .nombre-david {
     align-self: flex-start;
-    margin: 0 20% 0 5%;
+    margin: 0 10% 0 16%;
 }
 
 .nombre-esther {
     align-self: flex-end;
-    margin: 0 5% 0 20%;
+    margin: 0 16% 0 10%;
 }
 
 /* Circulo con ampersand */
 .circulo-ampersand {
-    width: 30px;
-    height: 30px;
+    width: 44px;
+    height: 44px;
     background-color: rgba(84, 106, 104, 0.9);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: -5px auto;
+    margin: -8px auto;
     z-index: 2;
 }
 
 .circulo-ampersand span {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     font-style: italic;
-    color: #546a68;
+    color: #ffffff;
 }
 
 /* Flecha abajo */
@@ -979,6 +979,11 @@ button:focus-visible,
     color: #7a8d8b;
 }
 
+.modal-contenido .modal-aviso-calzado {
+    font-size: 0.78rem;
+    line-height: 1.4;
+}
+
 .modal-contenido .metodos-regalo {
     margin: 16px auto 0;
     max-width: 360px;
@@ -1284,11 +1289,11 @@ button:focus-visible,
     }
 
     .nombre-david {
-        margin: 0 15% 0 5%;
+        margin: 0 10% 0 11%;
     }
 
     .nombre-esther {
-        margin: 0 5% 0 15%;
+        margin: 0 11% 0 10%;
     }
 
     /* Timeline */

@@ -321,7 +321,18 @@
             <div class="icono-modal">👔</div>
             <h3>Vestimenta</h3>
             <p>Outfits Ideas</p>
+            <p class="modal-texto-secundario modal-aviso-calzado"><strong>IMPORTANTE:</strong> algunas zonas de la Villa son de suelo empedrado, tenerlo en cuenta para vuestro calzado.</p>
             <img class="imagen-outfits" src="resources/Outfits.jpeg" alt="Outfits Ideas" loading="lazy">
+        </div>
+    </div>
+
+    <div id="modal-vestimenta-fiesta" class="modal" onclick="cerrarModal(event, 'modal-vestimenta-fiesta')">
+        <div class="modal-contenido" onclick="event.stopPropagation()">
+            <span class="cerrar" onclick="cerrarModal(event, 'modal-vestimenta-fiesta')">&times;</span>
+            <div class="icono-modal">🪩</div>
+            <h3>Vestimenta para la fiesta</h3>
+            <p>Outfits Ideas</p>
+            <img class="imagen-outfits" src="resources/Outfits80.jpeg" alt="Outfits 80" loading="lazy">
         </div>
     </div>
 
@@ -478,6 +489,8 @@
                 <div class="timeline-punto"></div>
             </div>
         </div>
+
+        <a class="btn-maps" href="#" onclick="event.preventDefault(); abrirModal('modal-vestimenta-fiesta')">Vestimenta para la fiesta</a>
     </section>
 
     <!-- SECCIÓN REGALOS -->
