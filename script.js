@@ -85,6 +85,38 @@ function cerrarModal(event, modalId) {
     }
 }
 
+function mostrarAviso(mensaje, tipo = 'ok') {
+    const aviso = document.createElement('div');
+    aviso.textContent = mensaje;
+    aviso.style.position = 'fixed';
+    aviso.style.left = '50%';
+    aviso.style.top = '24px';
+    aviso.style.transform = 'translateX(-50%)';
+    aviso.style.padding = '12px 18px';
+    aviso.style.borderRadius = '12px';
+    aviso.style.color = '#ffffff';
+    aviso.style.fontSize = '0.95rem';
+    aviso.style.fontWeight = '600';
+    aviso.style.boxShadow = '0 10px 24px rgba(0, 0, 0, 0.2)';
+    aviso.style.zIndex = '3000';
+    aviso.style.maxWidth = 'min(92vw, 560px)';
+    aviso.style.textAlign = 'center';
+    aviso.style.opacity = '0';
+    aviso.style.transition = 'opacity 0.25s ease';
+    aviso.style.backgroundColor = tipo === 'ok' ? 'rgba(84, 106, 104, 0.95)' : 'rgba(163, 76, 76, 0.95)';
+
+    document.body.appendChild(aviso);
+
+    requestAnimationFrame(() => {
+        aviso.style.opacity = '1';
+    });
+
+    setTimeout(() => {
+        aviso.style.opacity = '0';
+        setTimeout(() => aviso.remove(), 250);
+    }, 3500);
+}
+
 // ========================================
 // FORMULARIO DE CONFIRMACIÓN
 // ========================================
@@ -113,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Obtener los valores del formulario
             const nombre = form.querySelector('input[name="nombre"]').value;
             const asistencia = form.querySelector('input[name="asistencia"]:checked').value;
-            const nota = form.querySelector('textarea[name="notas"]').value.trim();
+            const nota = form.querySelector('textarea[name="nota"]').value.trim();
             const bebida = document.querySelector('#modal-bebida textarea[name="bebida"]')?.value.trim() || 'Sin preferencia';
             const asistenciaTexto = asistencia === 'si' ? 'SÍ confirmo mi asistencia' : 'NO puedo asistir';
             const confirmacion = asistencia === 'si' ? 'Afirmativa' : 'Negativa';
@@ -121,10 +153,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const templateParams = {
                 nombre: nombre,
-                Confirmacion: confirmacion,
+                confirmacion: confirmacion,
                 afirmacion: asistencia,
                 bebida: bebida,
-                nota: notaTexto
+                notas: notaTexto
             };
 
             const submitBtn = form.querySelector('button[type="submit"]');
@@ -138,14 +170,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
 
                 await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
-                alert('Confirmacion enviada correctamente. Gracias.');
+                mostrarAviso('Confirmacion enviada correctamente. Gracias.', 'ok');
 
                 // Cerrar el modal despues del envio
                 cerrarModal(null, 'modal-confirmacion');
                 form.reset();
             } catch (error) {
                 console.error('Error al enviar con EmailJS:', error);
-                alert('No se pudo enviar la confirmacion. Revisa la configuracion de EmailJS e intentalo de nuevo.');
+                mostrarAviso('No se pudo enviar la confirmacion. Revisa la configuracion de EmailJS e intentalo de nuevo.', 'error');
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = textoOriginal;
