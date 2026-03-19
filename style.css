@@ -35,6 +35,40 @@ img {
     display: block;
 }
 
+/* Quita el resaltado azul al pulsar en movil */
+button,
+.btn-maps,
+.btn-recuadro,
+.btn-modal,
+.btn-regalos,
+.btn-confirmacion,
+.carrusel-btn {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+button:focus,
+.btn-maps:focus,
+.btn-recuadro:focus,
+.btn-modal:focus,
+.btn-regalos:focus,
+.btn-confirmacion:focus,
+.carrusel-btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+button:focus-visible,
+.btn-maps:focus-visible,
+.btn-recuadro:focus-visible,
+.btn-modal:focus-visible,
+.btn-regalos:focus-visible,
+.btn-confirmacion:focus-visible,
+.carrusel-btn:focus-visible {
+    outline: 2px solid rgba(84, 106, 104, 0.55);
+    outline-offset: 2px;
+}
+
 /* ========================================
    SECCION PORTADA
    ======================================== */

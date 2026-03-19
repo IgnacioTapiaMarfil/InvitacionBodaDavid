@@ -5,19 +5,23 @@
 const btnMusica = document.getElementById('btn-musica');
 const audioMusica = document.getElementById('musica-fondo');
 let musicaReproduciendo = false;
+let audioConSonido = false;
 
 function actualizarEstadoBoton() {
     btnMusica.classList.toggle('reproduciendo', musicaReproduciendo);
 }
 
-async function reproducirMusica() {
+async function reproducirMusica(conSonido = true) {
     try {
         audioMusica.volume = 0.5;
+        audioMusica.muted = !conSonido;
         await audioMusica.play();
         musicaReproduciendo = true;
+        audioConSonido = conSonido;
         actualizarEstadoBoton();
     } catch (error) {
         musicaReproduciendo = false;
+        audioConSonido = false;
         actualizarEstadoBoton();
     }
 }
@@ -25,6 +29,7 @@ async function reproducirMusica() {
 function pausarMusica() {
     audioMusica.pause();
     musicaReproduciendo = false;
+    audioConSonido = false;
     actualizarEstadoBoton();
 }
 
@@ -32,18 +37,24 @@ btnMusica.addEventListener('click', () => {
     if (musicaReproduciendo) {
         pausarMusica();
     } else {
-        reproducirMusica();
+        reproducirMusica(true);
     }
 });
 
-// Intenta iniciar activa al cargar. Algunos navegadores requieren interacción del usuario.
+// El autoplay con sonido suele estar bloqueado; iniciamos en silencio para evitar errores.
 window.addEventListener('load', () => {
-    reproducirMusica();
+    reproducirMusica(false);
 });
 
 document.addEventListener('pointerdown', () => {
+    if (musicaReproduciendo && !audioConSonido) {
+        audioMusica.muted = false;
+        audioConSonido = true;
+        return;
+    }
+
     if (!musicaReproduciendo) {
-        reproducirMusica();
+        reproducirMusica(true);
     }
 }, { once: true });
 
