@@ -137,7 +137,7 @@ button:focus-visible,
     transform: translateY(-50%);
     width: clamp(10px, 4vw, 30px);
     height: 1px;
-    background-color: #ffffff;
+    background-color: #000000;
 }
 
 .fecha-boda::before {
