@@ -1,4 +1,63 @@
 // ========================================
+// CONTROL DE MÚSICA
+// ========================================
+
+const btnMusica = document.getElementById('btn-musica');
+const audioMusica = document.getElementById('musica-fondo');
+let musicaReproduciendo = false;
+
+function actualizarEstadoBoton() {
+    btnMusica.classList.toggle('reproduciendo', musicaReproduciendo);
+}
+
+async function reproducirMusica() {
+    try {
+        audioMusica.volume = 0.5;
+        await audioMusica.play();
+        musicaReproduciendo = true;
+        actualizarEstadoBoton();
+    } catch (error) {
+        musicaReproduciendo = false;
+        actualizarEstadoBoton();
+    }
+}
+
+function pausarMusica() {
+    audioMusica.pause();
+    musicaReproduciendo = false;
+    actualizarEstadoBoton();
+}
+
+btnMusica.addEventListener('click', () => {
+    if (musicaReproduciendo) {
+        pausarMusica();
+    } else {
+        reproducirMusica();
+    }
+});
+
+// Intenta iniciar activa al cargar. Algunos navegadores requieren interacción del usuario.
+window.addEventListener('load', () => {
+    reproducirMusica();
+});
+
+document.addEventListener('pointerdown', () => {
+    if (!musicaReproduciendo) {
+        reproducirMusica();
+    }
+}, { once: true });
+
+audioMusica.addEventListener('play', () => {
+    musicaReproduciendo = true;
+    actualizarEstadoBoton();
+});
+
+audioMusica.addEventListener('pause', () => {
+    musicaReproduciendo = false;
+    actualizarEstadoBoton();
+});
+
+// ========================================
 // CUENTA REGRESIVA
 // ========================================
 
@@ -144,6 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Obtener los valores del formulario
             const nombre = form.querySelector('input[name="nombre"]').value;
+            const email = form.querySelector('input[name="email"]').value.trim();
             const asistencia = form.querySelector('input[name="asistencia"]:checked').value;
             const nota = form.querySelector('textarea[name="nota"]').value.trim();
             const bebida = document.querySelector('#modal-bebida textarea[name="bebida"]')?.value.trim() || 'Sin preferencia';
@@ -153,6 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const templateParams = {
                 nombre: nombre,
+                email: email,
                 confirmacion: confirmacion,
                 afirmacion: asistencia,
                 bebida: bebida,
