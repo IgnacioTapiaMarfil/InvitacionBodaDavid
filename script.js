@@ -152,7 +152,7 @@ function mostrarAviso(mensaje, tipo = 'ok') {
     aviso.style.textAlign = 'center';
     aviso.style.opacity = '0';
     aviso.style.transition = 'opacity 0.25s ease';
-    aviso.style.backgroundColor = tipo === 'ok' ? 'rgba(84, 106, 104, 0.95)' : 'rgba(163, 76, 76, 0.95)';
+    aviso.style.backgroundColor = tipo === 'ok' ? 'rgba(126, 160, 156, 0.95)' : 'rgba(163, 76, 76, 0.95)';
 
     document.body.appendChild(aviso);
 

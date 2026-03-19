@@ -25,7 +25,7 @@ html {
 body {
     font-family: 'Playfair Display', serif;
     text-align: center;
-    color: #546a68;
+    color: #7ea09c;
     background-color: #fdfaf6;
 }
 
@@ -65,7 +65,7 @@ button:focus-visible,
 .btn-regalos:focus-visible,
 .btn-confirmacion:focus-visible,
 .carrusel-btn:focus-visible {
-    outline: 2px solid rgba(84, 106, 104, 0.55);
+    outline: 2px solid rgba(126, 160, 156, 0.55);
     outline-offset: 2px;
 }
 
@@ -79,7 +79,7 @@ button:focus-visible,
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    background-color: #546a68;
+    background-color: #7ea09c;
     background-image: url('resources/Foto1.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -160,8 +160,8 @@ button:focus-visible,
 .nombre-david,
 .nombre-esther {
     font-size: clamp(4.4rem, 14vw, 7.2rem);
-    font-family: "Fleur De Leah";
-    color: #ffffff;
+    font-family: "Allura";
+    color: #000000;
     margin: 0;
 }
 
@@ -179,7 +179,7 @@ button:focus-visible,
 .circulo-ampersand {
     width: 44px;
     height: 44px;
-    background-color: rgba(84, 106, 104, 0.9);
+    background-color: rgba(126, 160, 156, 0.9);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -253,7 +253,7 @@ button:focus-visible,
 }
 
 .wave-divider-2 {
-    fill: rgba(84, 106, 104, 0.9);
+    fill: rgba(126, 160, 156, 0.9);
     margin-top: 20px;
 }
 
@@ -267,15 +267,25 @@ button:focus-visible,
 }
 
 .wave-divider-inverted {
-    fill: rgba(84, 106, 104, 0.9);
+    fill: rgba(126, 160, 156, 0.9);
     z-index: 10;
     margin-top: -56px;
     transform: translateY(clamp(-64px, -5.5vh, -24px));
 }
 
 .wave-divider-inverted-2 {
-    fill: rgba(84, 106, 104, 0.9);
+    fill: rgba(126, 160, 156, 0.9);
     transform: translateY(clamp(-60px, -1vh, -20px));
+}
+
+.wave-divider-3 {
+    margin-top: 6px;
+    transform: translateY(18px) scaleY(-1) scaleX(-1);
+}
+
+.wave-divider-inverted-3 {
+    margin-top: -28px;
+    transform: translateY(clamp(-36px, -0.5vh, -10px)) scaleY(-1);
 }
 
 /* ========================================
@@ -295,7 +305,7 @@ button:focus-visible,
     grid-area: 1 / 1;
     margin: 0;
     transform: translateY(clamp(-95px, -13vw, -50px));
-    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-size: clamp(2.8rem, 7vw, 5.6rem);
     z-index: 12;
     pointer-events: none;
 }
@@ -306,9 +316,9 @@ button:focus-visible,
     justify-content: center;
     align-items: center;
     gap: clamp(10px, 3vw, 30px);
-    padding: clamp(30px, 6vw, 80px);
-    width: clamp(260px, 70vw, 550px);
-    height: clamp(260px, 70vw, 550px);
+    padding: clamp(42px, 8vw, 108px);
+    width: clamp(320px, 78vw, 680px);
+    height: clamp(320px, 78vw, 680px);
     background: #ffffff;
     border-radius: 50%;
     box-shadow: 0 10px 40px rgba(91, 95, 89, 0.3);
@@ -320,7 +330,9 @@ button:focus-visible,
     align-items: center;
     justify-content: center;
     position: relative;
-    font-size: clamp(1.8rem, 6vw, 3.5rem);
+    font-size: clamp(3rem, 9vw, 6rem);
+    transform: translateY(6px);
+    line-height: 0.95;
 }
 
 #reloj div:not(:last-child)::after {
@@ -328,16 +340,17 @@ button:focus-visible,
     position: absolute;
     right: clamp(-10px, -2vw, -15px);
     width: 2px;
-    height: clamp(40px, 8vw, 80px);
-    background-color: rgba(84, 106, 104, 0.9);
+    height: clamp(54px, 10vw, 108px);
+    background-color: rgba(126, 160, 156, 0.9);
 }
 
 #reloj div span {
     display: block;
-    margin-top: 8px;
-    font-size: clamp(0.7rem, 2vw, 1.5rem);
+    margin-top: 3px;
+    font-size: clamp(1rem, 3.1vw, 2.3rem);
     font-weight: bold;
-    color: #546a68;
+    color: #7ea09c;
+    line-height: 1.1;
 }
 
 /* ========================================
@@ -398,7 +411,7 @@ button:focus-visible,
     color: #ffffff;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     box-shadow: none;
-    font-family: "Fleur De Leah";
+    font-family: "Allura";
     font-size: clamp(2.2rem, 5vw, 5rem);
     font-weight: 400;
     line-height: 1;
@@ -406,10 +419,12 @@ button:focus-visible,
 
 .seccion-evento h2 {
     margin: 15px 0 5px;
+    color: #5f7d79;
 }
 
 .seccion-evento p {
     margin: 0 0 5px;
+    color: #5f7d79;
 }
 
 .btn-maps {
@@ -418,7 +433,7 @@ button:focus-visible,
     justify-content: center;
     margin-top: 20px;
     padding: 12px 24px;
-    background-color: rgba(84, 106, 104, 0.9);
+    background-color: rgba(126, 160, 156, 0.9);
     color: #fff;
     border-radius: 25px;
     text-decoration: none;
@@ -445,9 +460,9 @@ button:focus-visible,
 
 #galeria h2 {
     margin-bottom: 100px;
-    font-family: "Fleur De Leah";
+    font-family: "Allura";
     font-size: clamp(2rem, 5vw, 2.5rem);
-    color: #546a68;
+    color: #7ea09c;
     position: relative;
     top: -8px;
 }
@@ -508,7 +523,7 @@ button:focus-visible,
     margin-top: 15px;
     font-family: 'Caveat', cursive;
     font-size: 1.5rem;
-    color: #546a68;
+    color: #7ea09c;
     text-align: center;
 }
 
@@ -521,7 +536,7 @@ button:focus-visible,
     background-color: rgba(255, 255, 255, 0.8);
     border: none;
     border-radius: 50%;
-    color: #546a68;
+    color: #7ea09c;
     font-size: clamp(1.2rem, 3vw, 2rem);
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -557,25 +572,25 @@ button:focus-visible,
 
 #itinerario-detallado h2 {
     margin-bottom: 30px;
-    font-family: "Fleur De Leah";
+    font-family: "Allura";
     font-size: clamp(2rem, 5vw, 2.5rem);
-    color: #546a68;
+    color: #7ea09c;
 }
 
 .dia-titulo {
     margin: 20px 0 10px 0;
-    font-family: "Fleur De Leah";
+    font-family: "Allura";
     font-size: clamp(1.9rem, 4.5vw, 2.4rem);
-    color: #546a68;
+    color: #7ea09c;
     text-align: center;
 }
 
 .zona-titulo {
     width: min(70%, 420px);
     margin: 30px auto 5px;
-    font-family: "Fleur De Leah";
+    font-family: "Allura";
     font-size: clamp(1.5rem, 4vw, 2rem);
-    color: #546a68;
+    color: #7ea09c;
     text-align: left;
     padding-left: 0;
 }
@@ -668,15 +683,15 @@ button:focus-visible,
 
 #fiesta h2 {
     margin-bottom: 10px;
-    font-family: "Fleur De Leah";
+    font-family: "Allura";
     font-size: clamp(2rem, 5vw, 2.5rem);
-    color: #546a68;
+    color: #7ea09c;
 }
 
 #fiesta .subtitulo {
     margin-bottom: 30px;
     font-size: clamp(0.9rem, 2.5vw, 1rem);
-    color: #8296a0;
+    color: #5f7d79;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -712,7 +727,7 @@ button:focus-visible,
 .recuadro h3 {
     margin: 0;
     font-size: clamp(1.2rem, 3vw, 1.5rem);
-    color: #546a68;
+    color: #7ea09c;
     font-weight: 600;
 }
 
@@ -720,14 +735,14 @@ button:focus-visible,
     margin: 0;
     font-size: clamp(0.82rem, 2.2vw, 0.92rem);
     line-height: 1.45;
-    color: #8296a0;
+    color: #5f7d79;
     max-width: 28ch;
 }
 
 .btn-recuadro {
     padding: 10px 25px;
     background-color: #ffffff;
-    color: #546a68;
+    color: #7ea09c;
     border: none;
     border-radius: 20px;
     font-size: clamp(0.85rem, 2.5vw, 0.95rem);
@@ -754,15 +769,15 @@ button:focus-visible,
 
 #regalos h2 {
     margin-bottom: 10px;
-    font-family: "Fleur De Leah";
+    font-family: "Allura";
     font-size: clamp(2rem, 5vw, 2.5rem);
-    color: #546a68;
+    color: #7ea09c;
 }
 
 #regalos .subtitulo {
     margin-bottom: 30px;
     font-size: clamp(0.9rem, 2.5vw, 1rem);
-    color: #8296a0;
+    color: #5f7d79;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -801,15 +816,15 @@ button:focus-visible,
 
 #fotos h2 {
     margin-bottom: 10px;
-    font-family: "Fleur De Leah";
+    font-family: "Allura";
     font-size: clamp(2rem, 5vw, 2.5rem);
-    color: #546a68;
+    color: #7ea09c;
 }
 
 #fotos .subtitulo {
     margin-bottom: 30px;
     font-size: clamp(0.9rem, 2.5vw, 1rem);
-    color: #8296a0;
+    color: #5f7d79;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -834,7 +849,7 @@ button:focus-visible,
 }
 
 .qr-placeholder p {
-    color: #8296a0;
+    color: #5f7d79;
     font-size: 1.2rem;
 }
 
@@ -849,15 +864,15 @@ button:focus-visible,
 
 #confirmacion h2 {
     margin-bottom: 10px;
-    font-family: "Fleur De Leah";
+    font-family: "Allura";
     font-size: clamp(2rem, 5vw, 2.5rem);
-    color: #546a68;
+    color: #7ea09c;
 }
 
 #confirmacion .subtitulo {
     margin-bottom: 30px;
     font-size: clamp(0.9rem, 2.5vw, 1rem);
-    color: #8296a0;
+    color: #5f7d79;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -959,8 +974,8 @@ button:focus-visible,
 .modal-contenido h3 {
     margin: 10px 0 20px 0;
     font-size: clamp(1.8rem, 5vw, 2rem);
-    color: #546a68;
-    font-family: "Fleur De Leah";
+    color: #7ea09c;
+    font-family: "Allura";
     position: relative;
     z-index: 1;
 }
@@ -968,7 +983,7 @@ button:focus-visible,
 .modal-contenido p {
     margin: 0;
     line-height: 1.6;
-    color: #546a68;
+    color: #5f7d79;
     position: relative;
     z-index: 1;
     font-size: clamp(0.9rem, 2.5vw, 1rem);
@@ -986,7 +1001,7 @@ button:focus-visible,
     margin-top: 14px;
     font-size: 0.9rem;
     line-height: 1.5;
-    color: #7a8d8b;
+    color: #5f7d79;
 }
 
 .modal-contenido .modal-aviso-calzado {
@@ -1001,7 +1016,7 @@ button:focus-visible,
     padding-left: 0;
     list-style-position: inside;
     line-height: 1.6;
-    color: #546a68;
+    color: #5f7d79;
 }
 
 .modal-contenido .metodos-regalo li + li {
@@ -1020,7 +1035,7 @@ button:focus-visible,
 .notas-lista li {
     margin-bottom: 12px;
     line-height: 1.6;
-    color: #546a68;
+    color: #5f7d79;
     font-size: clamp(0.85rem, 2.5vw, 1rem);
 }
 
@@ -1028,7 +1043,7 @@ button:focus-visible,
     display: inline-block;
     margin-top: 20px;
     padding: 12px 20px;
-    background-color: rgba(84, 106, 104, 0.9);
+    background-color: rgba(126, 160, 156, 0.9);
     color: #fff;
     border-radius: 25px;
     text-decoration: none;
@@ -1072,7 +1087,7 @@ button:focus-visible,
     border: 1px solid #d4d4d4;
     border-radius: 10px;
     background-color: #ffffff;
-    color: #546a68;
+    color: #7ea09c;
     font-size: clamp(0.78rem, 2.4vw, 0.95rem);
     cursor: pointer;
     min-height: 44px;
@@ -1082,7 +1097,7 @@ button:focus-visible,
 }
 
 .opcion-asistencia:has(input[type="radio"]:checked) {
-    border-color: rgba(84, 106, 104, 0.9);
+    border-color: rgba(126, 160, 156, 0.9);
     background-color: #eaf1f0;
     box-shadow: 0 4px 12px rgba(84, 106, 104, 0.2);
     font-weight: 600;
@@ -1090,7 +1105,7 @@ button:focus-visible,
 
 .opcion-asistencia input[type="radio"] {
     margin: 0;
-    accent-color: rgba(84, 106, 104, 0.9);
+    accent-color: rgba(126, 160, 156, 0.9);
 }
 
 .modal-contenido input,
@@ -1099,7 +1114,7 @@ button:focus-visible,
     border: 1px solid #d4d4d4;
     border-radius: 10px;
     font-size: 1rem;
-    color: #546a68;
+    color: #7ea09c;
     font-family: 'Playfair Display', serif;
     min-height: 44px;
 }
@@ -1111,7 +1126,7 @@ button:focus-visible,
     border: 1px solid #d4d4d4;
     border-radius: 10px;
     font-size: 1rem;
-    color: #546a68;
+    color: #7ea09c;
     font-family: 'Playfair Display', serif;
     line-height: 1.5;
     resize: vertical;
@@ -1120,7 +1135,7 @@ button:focus-visible,
 
 .modal-contenido button[type="submit"] {
     padding: 12px 20px;
-    background-color: rgba(84, 106, 104, 0.9);
+    background-color: rgba(126, 160, 156, 0.9);
     color: #fff;
     border: none;
     border-radius: 10px;
@@ -1253,7 +1268,7 @@ button:focus-visible,
     height: 58px;
     border-radius: 999px;
     border: 2px solid rgba(255, 255, 255, 0.55);
-    background: linear-gradient(145deg, #6f8a87 0%, #546a68 65%, #475b59 100%);
+    background: linear-gradient(145deg, #7ea09c 0%, #7ea09c 65%, #5f7471 100%);
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -1407,14 +1422,14 @@ button:focus-visible,
     }
 
     #reloj {
-        width: min(85vw, 320px);
-        height: min(85vw, 320px);
-        padding: 25px 14px;
+        width: min(90vw, 400px);
+        height: min(90vw, 400px);
+        padding: 34px 18px;
         gap: 10px;
     }
 
     #reloj div {
-        font-size: clamp(1.5rem, 5.5vw, 2.2rem);
+        font-size: clamp(2.2rem, 7.2vw, 3.2rem);
     }
 
     #reloj div:not(:last-child)::after {
@@ -1423,11 +1438,11 @@ button:focus-visible,
     }
 
     #reloj div span {
-        font-size: 0.8rem;
+        font-size: 1.05rem;
     }
 
     #cuenta-regresiva h2 {
-        font-size: 1.5rem;
+        font-size: 2.15rem;
     }
 
     .seccion-evento,
@@ -1499,14 +1514,14 @@ button:focus-visible,
     }
 
     #reloj {
-        width: min(88vw, 270px);
-        height: min(88vw, 270px);
-        padding: 20px 10px;
+        width: min(94vw, 340px);
+        height: min(94vw, 340px);
+        padding: 28px 14px;
         gap: 8px;
     }
 
     #reloj div {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     #reloj div:not(:last-child)::after {
@@ -1515,11 +1530,11 @@ button:focus-visible,
     }
 
     #reloj div span {
-        font-size: 0.7rem;
+        font-size: 0.9rem;
     }
 
     #cuenta-regresiva h2 {
-        font-size: 1.3rem;
+        font-size: 1.8rem;
     }
 
     .carrusel {
@@ -1550,3 +1565,4 @@ button:focus-visible,
         height: clamp(80px, 22vw, 150px);
     }
 }
+

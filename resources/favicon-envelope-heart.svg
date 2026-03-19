@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Sobre con corazon">
   <rect x="4" y="8" width="56" height="48" rx="10" fill="#fdfaf6"/>
-  <rect x="4" y="8" width="56" height="48" rx="10" fill="none" stroke="#546a68" stroke-width="4"/>
-  <path d="M8 18 L32 36 L56 18" fill="none" stroke="#546a68" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="4" y="8" width="56" height="48" rx="10" fill="none" stroke="#7ea09c" stroke-width="4"/>
+  <path d="M8 18 L32 36 L56 18" fill="none" stroke="#7ea09c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M24 18 C24 15 26 13 29 13 C31 13 32 14 33 16 C34 14 35 13 37 13 C40 13 42 15 42 18 C42 23 36 27 33 30 C30 27 24 23 24 18 Z" fill="#d86a7a"/>
 </svg>
