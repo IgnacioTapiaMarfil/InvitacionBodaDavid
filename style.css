@@ -122,7 +122,7 @@ button:focus-visible,
 .fecha-boda {
     font-size: clamp(0.75rem, 2.8vw, 1.2rem);
     margin: 20px 0;
-    color: #ffffff;
+    color: #000000;
     display: inline-block;
     position: relative;
     padding: 0 40px;
@@ -848,9 +848,15 @@ button:focus-visible,
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
-.qr-placeholder p {
-    color: #5f7d79;
-    font-size: 1.2rem;
+.qr-placeholder img {
+    width: 86%;
+    height: 86%;
+    object-fit: contain;
+}
+
+.btn-drive {
+    margin-top: 22px;
+    text-decoration: none;
 }
 
 /* ========================================

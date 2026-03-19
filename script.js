@@ -120,10 +120,40 @@ intervaloCarrusel = setInterval(() => {
 // MODALES
 // ========================================
 
+function actualizarElementosFijosModal(modal) {
+    const contenido = modal?.querySelector('.modal-contenido');
+    const icono = modal?.querySelector('.icono-modal');
+    const cerrar = modal?.querySelector('.cerrar');
+
+    if (!contenido || !icono || !cerrar) {
+        return;
+    }
+
+    const desplazamiento = contenido.scrollTop;
+    icono.style.transform = `translate(-50%, -50%) translateY(${desplazamiento}px)`;
+    cerrar.style.transform = `translateY(${desplazamiento}px)`;
+}
+
+function inicializarFijosEnModales() {
+    const modales = document.querySelectorAll('.modal');
+
+    modales.forEach((modal) => {
+        const contenido = modal.querySelector('.modal-contenido');
+        if (!contenido || contenido.dataset.fijosInicializados === '1') {
+            return;
+        }
+
+        contenido.dataset.fijosInicializados = '1';
+        contenido.addEventListener('scroll', () => actualizarElementosFijosModal(modal), { passive: true });
+        actualizarElementosFijosModal(modal);
+    });
+}
+
 function abrirModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
         modal.classList.add('activo');
+        actualizarElementosFijosModal(modal);
     }
 }
 
@@ -131,6 +161,7 @@ function cerrarModal(event, modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
         modal.classList.remove('activo');
+        actualizarElementosFijosModal(modal);
     }
 }
 
@@ -175,6 +206,8 @@ const EMAILJS_SERVICE_ID  = 'service_cy9u41g';
 const EMAILJS_TEMPLATE_ID = 'template_60r3sng';
 
 document.addEventListener('DOMContentLoaded', function() {
+    inicializarFijosEnModales();
+
     const form = document.getElementById('rsvp-form');
 
     const emailJsConfigCompleta = Boolean(
