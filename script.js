@@ -5,23 +5,22 @@
 const btnMusica = document.getElementById('btn-musica');
 const audioMusica = document.getElementById('musica-fondo');
 let musicaReproduciendo = false;
-let audioConSonido = false;
+let estabaReproduciendoAntesDeOcultar = false;
 
 function actualizarEstadoBoton() {
     btnMusica.classList.toggle('reproduciendo', musicaReproduciendo);
 }
 
-async function reproducirMusica(conSonido = true) {
+async function reproducirMusica() {
     try {
         audioMusica.volume = 0.5;
-        audioMusica.muted = !conSonido;
         await audioMusica.play();
         musicaReproduciendo = true;
-        audioConSonido = conSonido;
+        console.log('Musica de fondo iniciada correctamente.');
         actualizarEstadoBoton();
     } catch (error) {
         musicaReproduciendo = false;
-        audioConSonido = false;
+        console.log('Error al intentar reproducir la musica:', error);
         actualizarEstadoBoton();
     }
 }
@@ -29,7 +28,6 @@ async function reproducirMusica(conSonido = true) {
 function pausarMusica() {
     audioMusica.pause();
     musicaReproduciendo = false;
-    audioConSonido = false;
     actualizarEstadoBoton();
 }
 
@@ -37,26 +35,36 @@ btnMusica.addEventListener('click', () => {
     if (musicaReproduciendo) {
         pausarMusica();
     } else {
-        reproducirMusica(true);
+        reproducirMusica();
     }
 });
 
-// El autoplay con sonido suele estar bloqueado; iniciamos en silencio para evitar errores.
+// Intenta iniciar activa al cargar. Algunos navegadores requieren interaccion del usuario.
 window.addEventListener('load', () => {
-    reproducirMusica(false);
+    console.log('Intentando iniciar musica de fondo al cargar la pagina...');
+    reproducirMusica();
 });
 
 document.addEventListener('pointerdown', () => {
-    if (musicaReproduciendo && !audioConSonido) {
-        audioMusica.muted = false;
-        audioConSonido = true;
+    if (!musicaReproduciendo) {
+        reproducirMusica();
+    }
+}, { once: true });
+
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        estabaReproduciendoAntesDeOcultar = musicaReproduciendo;
+        if (musicaReproduciendo) {
+            pausarMusica();
+        }
         return;
     }
 
-    if (!musicaReproduciendo) {
-        reproducirMusica(true);
+    if (estabaReproduciendoAntesDeOcultar) {
+        reproducirMusica();
     }
-}, { once: true });
+    estabaReproduciendoAntesDeOcultar = false;
+});
 
 audioMusica.addEventListener('play', () => {
     musicaReproduciendo = true;

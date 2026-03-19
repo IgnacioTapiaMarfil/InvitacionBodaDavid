@@ -117,9 +117,10 @@ button:focus-visible,
 .fecha-boda::after {
     content: "";
     position: absolute;
-    bottom: 5px;
-    width: 20%;
-    height: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: clamp(10px, 4vw, 30px);
+    height: 1px;
     background-color: #ffffff;
 }
 
@@ -984,24 +985,29 @@ button:focus-visible,
 
 .asistencia-opciones {
     display: flex;
-    gap: 14px;
-    align-items: center;
+    gap: clamp(8px, 2vw, 14px);
+    align-items: stretch;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    width: 100%;
 }
 
 .opcion-asistencia {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 14px;
+    justify-content: center;
+    gap: clamp(4px, 1.5vw, 8px);
+    padding: clamp(8px, 2vw, 10px) clamp(8px, 2vw, 14px);
     border: 1px solid #d4d4d4;
     border-radius: 10px;
     background-color: #ffffff;
     color: #546a68;
-    font-size: 0.95rem;
+    font-size: clamp(0.78rem, 2.4vw, 0.95rem);
     cursor: pointer;
     min-height: 44px;
+    flex: 1 1 0;
+    min-width: 0;
+    white-space: nowrap;
 }
 
 .opcion-asistencia:has(input[type="radio"]:checked) {
@@ -1327,13 +1333,16 @@ button:focus-visible,
     }
 
     .asistencia-opciones {
-        flex-direction: column;
+        flex-direction: row;
         align-items: stretch;
+        gap: 8px;
     }
 
     .opcion-asistencia {
-        justify-content: flex-start;
-        width: 100%;
+        justify-content: center;
+        width: auto;
+        font-size: clamp(0.74rem, 2.8vw, 0.84rem);
+        padding: 8px 6px;
     }
 
     .wave-divider-inverted {
