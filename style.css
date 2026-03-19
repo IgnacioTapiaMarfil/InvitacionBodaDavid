@@ -1113,6 +1113,67 @@ button:focus-visible,
    BOTON DE MUSICA
    ======================================== */
 
+.tooltip-musica {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    right: 0;
+    background-color: rgba(50, 66, 64, 0.95);
+    color: #ffffff;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.78rem;
+    white-space: nowrap;
+    padding: 7px 12px;
+    border-radius: 10px;
+    pointer-events: none;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    animation: bocadillo-entrada 0.5s ease forwards, bocadillo-rebote 1.8s ease-in-out 0.5s infinite;
+}
+
+@keyframes bocadillo-entrada {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes bocadillo-rebote {
+    0%, 100% { transform: translateY(0); }
+    40%       { transform: translateY(-6px); }
+    60%       { transform: translateY(-3px); }
+}
+
+.tooltip-musica::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 18px;
+    border: 7px solid transparent;
+    border-top-color: rgba(50, 66, 64, 0.95);
+}
+
+.tooltip-musica.oculto {
+    opacity: 0;
+    pointer-events: none;
+    animation: fade-out-tooltip 0.4s ease forwards;
+}
+
+@keyframes fade-out-tooltip {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+}
+
 .btn-musica {
     position: fixed;
     right: 24px;

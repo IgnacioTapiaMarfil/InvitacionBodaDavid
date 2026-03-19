@@ -7,73 +7,44 @@ const audioMusica = document.getElementById('musica-fondo');
 let musicaReproduciendo = false;
 let estabaReproduciendoAntesDeOcultar = false;
 
+audioMusica.volume = 0.5;
+
 function actualizarEstadoBoton() {
     btnMusica.classList.toggle('reproduciendo', musicaReproduciendo);
 }
 
-async function reproducirMusica() {
-    try {
-        audioMusica.volume = 0.5;
-        await audioMusica.play();
-        musicaReproduciendo = true;
-        console.log('Musica de fondo iniciada correctamente.');
-        actualizarEstadoBoton();
-    } catch (error) {
-        musicaReproduciendo = false;
-        console.log('Error al intentar reproducir la musica:', error);
-        actualizarEstadoBoton();
-    }
-}
-
-function pausarMusica() {
-    audioMusica.pause();
-    musicaReproduciendo = false;
-    actualizarEstadoBoton();
-}
+const tooltipMusica = document.getElementById('tooltip-musica');
 
 btnMusica.addEventListener('click', () => {
+    if (tooltipMusica && !tooltipMusica.classList.contains('oculto')) {
+        tooltipMusica.classList.add('oculto');
+    }
     if (musicaReproduciendo) {
-        pausarMusica();
+        audioMusica.pause();
+        musicaReproduciendo = false;
     } else {
-        reproducirMusica();
+        audioMusica.play();
+        musicaReproduciendo = true;
     }
+    actualizarEstadoBoton();
 });
-
-// Intenta iniciar activa al cargar. Algunos navegadores requieren interaccion del usuario.
-window.addEventListener('load', () => {
-    console.log('Intentando iniciar musica de fondo al cargar la pagina...');
-    reproducirMusica();
-});
-
-document.addEventListener('pointerdown', () => {
-    if (!musicaReproduciendo) {
-        reproducirMusica();
-    }
-}, { once: true });
 
 document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
         estabaReproduciendoAntesDeOcultar = musicaReproduciendo;
         if (musicaReproduciendo) {
-            pausarMusica();
+            audioMusica.pause();
+            musicaReproduciendo = false;
+            actualizarEstadoBoton();
         }
-        return;
+    } else {
+        if (estabaReproduciendoAntesDeOcultar) {
+            audioMusica.play();
+            musicaReproduciendo = true;
+            actualizarEstadoBoton();
+        }
+        estabaReproduciendoAntesDeOcultar = false;
     }
-
-    if (estabaReproduciendoAntesDeOcultar) {
-        reproducirMusica();
-    }
-    estabaReproduciendoAntesDeOcultar = false;
-});
-
-audioMusica.addEventListener('play', () => {
-    musicaReproduciendo = true;
-    actualizarEstadoBoton();
-});
-
-audioMusica.addEventListener('pause', () => {
-    musicaReproduciendo = false;
-    actualizarEstadoBoton();
 });
 
 // ========================================
