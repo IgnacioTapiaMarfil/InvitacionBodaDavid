@@ -285,7 +285,7 @@ button:focus-visible,
 
 .wave-divider-inverted-3 {
     margin-top: -28px;
-    transform: translateY(clamp(-36px, -0.5vh, -10px)) scaleY(-1);
+    transform: translateY(clamp(-36px, -0.5vh, -10px)) scaleY(-1) scaleX(-1);
 }
 
 /* ========================================
