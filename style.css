@@ -198,8 +198,8 @@ button:focus-visible,
 .flecha-abajo {
     width: clamp(28px, 6vw, 46px);
     height: clamp(28px, 6vw, 46px);
-    margin-top: 8px;
-    margin-bottom: clamp(30px, 7vh, 70px);
+    margin-top: auto;
+    margin-bottom: clamp(60px, 12vh, 120px);
     position: relative;
     animation: bounce 2s infinite;
 }
